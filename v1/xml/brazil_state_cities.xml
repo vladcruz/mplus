@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<country name="brazil">
+    <state id="" name="">
+        <city capital="no" areacode=""></city>
+        <city capital="yes" areacode=""></city>
+    </state>

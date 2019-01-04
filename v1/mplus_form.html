@@ -1,0 +1,240 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>MPlus - Formul&aacute;rio de Solicita&ccedil;&atilde;o de Seguro</title>
+
+        <!-- My CSS -->
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./css/mplus.css">
+
+    </head>
+    <body>
+        <form name="insurance_request" action="mplus_form_post.php" method="POST">
+            <!-- Personal Data -->
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <label class="control-label" for="pers_cpf">CPF<span class="mark_required">*</span></label>
+                        <input type="text" name="pers_cpf" id="pers_cpf" class="form-control" placeholder="CPF" data-inputmask="'mask':'999.999.999-99'" data-mask="000.000.000-00" data-mask-reverse="true" onblur="validate_cpf('pers_cpf','cpf_valid')" required>
+                        <p id="cpf_valid" class="validation_error"></p>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label" for="pers_name">Nome Completo<span class="mark_required">*</span></label>
+                        <input type="text" name="pers_name" id="pers_name" class="form-control" placeholder="Nome Sobrenome" onblur="validate_name('pers_name','name_valid')" maxlength="64" required>
+                        <p id="name_valid" class="validation_error"></p>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label" for="pers_email">E-Mail<span class="mark_required">*</span></label>
+                        <input type="email" name="pers_email" id="pers_email" class="form-control" placeholder="seu_email@dominio.com.br" onblur="validate_email('pers_email','email_valid')" maxlength="64" required>
+                        <p id="email_valid" class="validation_error"></p>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label class="control-label" for="pers_bdate">Data de Nascimento<span class="mark_required">*</span></label>
+                        <input type="text" name="pers_bdate" id="pers_bdate" class="form-control" data-inputmask="'mask':'00/00/0000'" data-mask="00/00/0000" placeholder="dd/mm/aaaa" onblur="validate_bdate('pers_bdate','bdate_valid')" required>
+                        <p id="bdate_valid" class="validation_error"></p>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label" for="pers_mphone">Celular<span class="mark_required">*</span></label>
+                        <input type="text" name="pers_mphone" id="pers_mphone" class="form-control" data-inputmask="'mask':'(00)00000-0000'" data-mask="(00)00000-0000" placeholder="Celular" onblur="validate_mphone('pers_mphone','mphone_valid')" maxlength="12" required>
+                        <p id="mphone_valid" class="validation_error"></p>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label" for="pers_fphone">Telefone</label>
+                        <input type="text" name="pers_fphone" id="pers_fphone" class="form-control" data-inputmask="'mask':'(00)0000-0000'" data-mask="(00)0000-0000" placeholder="Telefone Fixo" maxlength="11">
+                    </div>
+                </div>
+            <!-- Address Data -->
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <label class="control-label" for="addr_cep">CEP<span class="mark_required">*</span></label>
+                        <input type="text" name="addr_cep" id="addr_cep" class="form-control" data-inputmask="'mask':'00000-000'" data-mask="00000-000" placeholder="CEP" onblur="validate_cep('addr_cep','cep_valid')" maxlength="8" required>
+                        <p id="cep_valid" class="validation_error"></p>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="control-label" for="addr_addr">Endereço</label>
+                        <input type="text" name="addr_addr" id="addr_addr" class="form-control" placeholder="Endereço" maxlength="128">
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label class="control-label" for="addr_state">Estado</label>
+                        <input type="text" name="addr_state" id="addr_state" class="form-control" placeholder="Estado" maxlength="2">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="control-label" for="addr_city">Cidade</label>
+                        <input type="text" name="addr_city" id="addr_city" class="form-control" placeholder="Cidade" maxlength="64">
+                    </div>
+                </div>
+            </fieldset>
+            <!-- Vehicle Data -->
+            <fieldset>
+                <legend>Dados do Ve&iacute;culo</legend>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label class="control-label" for="vehi_plate">Placa<span class="mark_required">*</span></label>
+                        <input type="text" name="vehi_plate" id="vehi_plate" class="form-control" data-inputmask="'mask':'SSS 0000'" data-mask="SSS 0000" placeholder="ABC 1234" maxlength="7" onblur="validate_plate('vehi_plate','plate_valid')" style="text-transform: uppercase" required>
+                        <p id="plate_valid" class="validation_error"></p>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label" for="vehi_manufacturer">Fabricante</label>
+                        <select name="vehi_manufacturer" id="vehi_manufacturer" class="form-control">
+                            <option value="---">Selecione...</option>
+                            <option value="Agrale">Agrale</option>
+                            <option value="Aston Martin">Aston Martin</option>
+                            <option value="Audi">Audi</option>
+                            <option value="Bentley">Bentley</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <option value="Changan">Changan</option>
+                            <option value="Chery">Chery</option>
+                            <option value="Chrysler">Chrysler</option>
+                            <option value="Citroën">Citro&euml;n</option>
+                            <option value="Dodge">Dodge</option>
+                            <option value="Effa">Effa</option>
+                            <option value="Ferrari">Ferrari</option>
+                            <option value="Fiat">Fiat</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Geely">Geely</option>
+                            <option value="Hafei">Hafei</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="Iveco">Iveco</option>
+                            <option value="Jac Motors">Jac Motors</option>
+                            <option value="Jeep">Jeep</option>
+                            <option value="Jinbei">Jinbei</option>
+                            <option value="Kia">Kia</option>
+                            <option value="Lamborghini">Lamborghini</option>
+                            <option value="Land Rover">Land Rover</option>
+                            <option value="Lexus">Lexus</option>
+                            <option value="Lifan">Lifan</option>
+                            <option value="Mahindra">Mahindra</option>
+                            <option value="Mercedes-Benz">Mercedes-Benz</option>
+                            <option value="Mini">Mini</option>
+                            <option value="Mitsubishi">Mitsubishi</option>
+                            <option value="Maserati">Maserati</option>
+                            <option value="MG Motors">MG Motors</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Peugeot">Peugeot</option>
+                            <option value="Porsche">Porsche</option>
+                            <option value="Ram">Ram</option>
+                            <option value="Renault">Renault</option>
+                            <option value="Smart">Smart</option>
+                            <option value="Ssangyong">Ssangyong</option>
+                            <option value="Subaru">Subaru</option>
+                            <option value="Suzuki">Suzuki</option>
+                            <option value="Tesla">Tesla</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Troller">Troller</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="Volvo">Volvo</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="control-label" for="vehi_model">Modelo</label>
+                        <input type="text" name="vehi_model" id="vehi_model" class="form-control" placeholder="Modelo do Veículo" maxlength="32">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label class="control-label" for="vehi_desc">Descriç&atilde;o</label>
+                        <input type="text" name="vehi_desc" id="vehi_desc" class="form-control" placeholder="Digite mais detalhes" maxlength="128">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-1">
+                        <label class="control-label" for="vehi_manyear">Ano Fabrica&ccedil;&atilde;o</label>
+                        <input type="text" name="vehi_manyear" id="vehi_manyear" class="form-control" data-inputmask="'mask':'0000'" data-mask="0000" placeholder="Ex.: 2005" maxlength="4">
+                    </div>
+                    <div class="form-group col-md-1">
+                        <label class="control-label" for="vehi_modyear">Ano Modelo</label>
+                        <input type="text" name="vehi_modyear" id="vehi_modyear" class="form-control" data-inputmask="'mask':'0000'" data-mask="0000" placeholder="Ex.: 2005" placeholder="Ano do Modelo" maxlength="4">
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label class="control-label" for="vehi_chassis">Chassis<span class="mark_required">*</span></label>
+                        <input type="text" name="vehi_chassis" id="vehi_chassis" class="form-control" data-inputmask="'mask':'AAAAAAAAAAAAAAAAA'" data-mask="AAAAAAAAAAAAAAAAA" placeholder="Chassis do Veículo" maxlength="64" onblur="validate_chassis('vehi_chassis','chassis_valid')" style="text-transform: uppercase" required>
+                        <p id="chassis_valid" class="validation_error"></p>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label class="control-label" for="vehi_renavam">Renavam<span class="mark_required">*</span></label>
+                        <input type="text" name="vehi_renavam" id="vehi_renavam" class="form-control" data-inputmask="'mask':'00000000000'" data-mask="00000000000" placeholder="Digite o Nº do Renavam do Veículo" maxlength="64" onblur="validate_renavam('vehi_renavam','renavam_valid')" required>
+                        <p id="renavam_valid" class="validation_error"></p>
+                    </div>
+                </div>
+            </fieldset>
+            <!-- Insurance Data -->
+            <fieldset>
+                <legend>Dados do Seguro</legend>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label class="control-label" for="insu_renew">Renova&ccedil;&atilde;o<span class="mark_required">*</span></label>
+                        <select name="insu_renew" id="insu_renew" class="form-control" onblur="validate_select('insu_renew', 'renew_valid')">
+                            <option value="---">Selecione...</option>
+                            <option value="yes">Sim</option>
+                            <option value="no">N&atilde;o</option>
+                        </select>
+                        <p id="renew_valid" class="validation_error"></p>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="control-label" for="insu_company">Seguradora<span class="mark_required">*</span></label>
+                        <select name="insu_company" id="insu_company" class="form-control" onblur="validate_select('insu_company', 'company_valid')">
+                            <option value="---">Selecione...</option>
+                            <option value="suhai">Suhai</option>
+                            <option value="youse">Youse</option>
+                            <option value="cardiff">Cardiff</option>
+                            <option value="caixa">Caixa</option>
+                            <option value="chubb">Chubb</option>
+                            <option value="liberty">Liberty</option>
+                            <option value="generali">Generali</option>
+                            <option value="porto_seguro">Porto Seguro</option>
+                            <option value="tokio_marine">Tokio Marine</option>
+                            <option value="bradesco">Bradesco</option>
+                        </select>
+                        <p id="company_valid" class="validation_error"></p>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="control-label" for="insu_bonus">Classe de B&ocirc;nus Atual<span class="mark_required">*</span></label>
+                        <select name="insu_bonus" id="insu_bonus" class="form-control" onblur="validate_select('insu_bonus', 'bonus_valid')">
+                            <option value="---">Selecione...</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                        <p id="bonus_valid" class="validation_error"></p>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label class="control-label" for="insu_accident">Houve Sinistro no ano Corrente?<span class="mark_required">*</span></label>
+                        <select name="insu_accident" id="insu_accident" class="form-control" required>
+                            <option value="---">Selecione...</option>
+                            <option value="yes">Sim</option>
+                            <option value="no">N&atilde;o</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            <!-- Submit -->
+            <button class="btn btn-primary" type="submit">Enviar</button>
+        </form>
+
+        <!-- JQUERY and other JS-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+        <script type="text/javascript" src="js/form_validation.js"></script>
+
+    </body>
+</html>

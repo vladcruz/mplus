@@ -1,0 +1,20 @@
+body
+{
+  top: 0px;
+  left: 0px;
+  margin: 10px;
+  padding: 0px;
+  background-color: #FFFFFF;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #000000;
+}
+
+.mark_required
+{
+  color: rgb(255, 0, 0);
+}
+
+.validation_error
+{
+  color: rgb(255, 0, 0);
+}
