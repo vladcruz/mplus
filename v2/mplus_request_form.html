@@ -24,13 +24,52 @@
         <div class="main_div">
             <form name="insurance_request" action="." method="POST">
                 <fieldset>
-                    <!-- Identification -->
-                    <div class="input-group mb-3" name="req_form">
-                        <label class="control-label" for="req_id"><b>Eu sou...</b></label><br/>
-                        <input type="radio" name="req_id" value="fisica"> Pessoa F&iacute;sica </input><br/>
-                        <input type="radio" name="req_id" value="juridica"> Pessoa Jur&iacute;dica </input><br/>
-                        
+                    <!-- Person or Company -->
+                    <div id="div_requestor_type">
+                        <label><b>Eu sou...</b></label><br/>
+                        <input type="radio" name="input_requestor_type" id="input_requestor_type" value="person">Pessoa F&iacute;sica</input><br/>
+                        <input type="radio" name="input_requestor_type" id="input_requestor_type" value="company">Pessoa Jur&iacute;dica</input><br/>
+                        <br/>
                     </div>
+                    <!-- Person Data -->
+                    <div id="div_person_data" >
+                        <label><b>Meus Dados...</b></label><br/>
+                        <label>CPF </label>
+                        <input type="text" name="input_person_cpf" id="input_person_cpf" size="12" maxlenght="11"></input><br/>
+                        <label>Primeiro Nome </label>
+                        <input type="text" name="input_person_fname" id="input_person_fname" size="24" maxlenght="24"></input><br/>
+                        <label>&Uacute;ltimo Nome </label>
+                        <input type="text" name="input_person_lname" id="input_person_lname" size="24" maxlenght="24"></input><br/>
+                        <label>E-Mail </label>
+                        <input type="email" name="input_person_email" id="input_person_email" size="32" maxlenght="32"></input><br/>
+                        <label>Data de Nascimento </label>
+                        <input type="text" name="input_person_bdate" id="input_person_bdate" size="8" maxlenght="8"></input><br/>
+                        <label>Telefone Celular </label>
+                        <input type="text" name="input_person_mphone" id="input_person_mphone" size="10" maxlenght="10"></input><br/>
+                        <label>Telefone Fixo </label>
+                        <input type="text" name="input_person_fphone" id="input_person_fphone" size="10" maxlenght="10"></input><br/>
+                        <label>CEP </label>
+                        <input type="text" name="input_person_cep" id="input_person_cep" size="8" maxlenght="8"></input><br/>
+                        <label>Logradouro </label>
+                        <input type="text" name="input_person_street" id="input_person_street" size="32" maxlenght="32"></input><br/>
+                        <label>N&uacute;mero </label>
+                        <input type="text" name="input_person_street_number" id="input_person_street_number" size="5" maxlenght="5"></input><br/>
+                        <label>Complemento </label>
+                        <input type="text" name="input_person_street_comp" id="input_person_street_comp" size="5" maxlenght="5"></input><br/>
+                        <label>Bairro </label>
+                        <input type="text" name="input_person_city_area" id="input_person_city_area" size="32" maxlenght="32"></input><br/>
+                        <label>Estado </label>
+                        <input type="text" name="input_person_state" id="input_person_state" size="2" maxlenght="2"></input><br/>
+                        <label>Cidade </label>
+                        <input type="text" name="input_person_city" id="input_person_city" size="2" maxlenght="2"></input><br/>
+                        <br />
+                    </div>
+                    <!-- Company Data -->
+                    <div id="div_company_data">
+                        <label>Meus Dados...</label><br/>
+                        <input type="text" name="" id="" size="" maxlenght=""></input>
+                        
+                    </div>                    
                 </fieldset>
             </form>
         </div>
