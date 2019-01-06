@@ -12,95 +12,132 @@
 
     <!-- Links to Libraries -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./css/mplus_form.css">
+    <link rel="stylesheet" type="text/css" href="css/mplus_form.css">
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src
-
+    <script src="js/mplus_form.js"></script>
   </head>
+
   <body>
-    <div class="">
+    <div class="container">
       <form name="insurance_request" action="." method="POST">
         <fieldset>
           <!-- Person or Company -->
-          <div id="div_requestor_type">
-              <label><b>Eu sou...</b></label><br/>
-              <input type="radio" name="input_requestor_type" id="input_requestor_type" value="person">Pessoa F&iacute;sica</input><br/>
-              <input type="radio" name="input_requestor_type" id="input_requestor_type" value="company">Pessoa Jur&iacute;dica</input><br/>
-              <br/>
+          <div id="div_requestor_type" class="form-row">
+            <legend><b>Eu sou...</b></legend>
+            <div class="form-group col-md-2">
+              <input type="radio" name="input_requestor_type" class="form-check-input" id="input_requestor_type" value="person" onclick="display_div('div_person_data', 'show');display_div('div_vehicle_data', 'show');display_div('div_insurance_data', 'show');display_div('div_company_data', 'hide');">
+              <label for="input_requestor_type" class="form-check-label">Pessoa F&iacute;sica</label>
+            </div>
+            <div class="form-group col-md-2">
+              <input type="radio" name="input_requestor_type" class="form-check-input" id="input_requestor_type" value="company" onclick="display_div('div_company_data', 'show');display_div('div_contact_data', 'show');display_div('div_person_data', 'hide');display_div('div_vehicle_data', 'hide');display_div('div_insurance_data', 'hide');">
+              <label for="input_requestor_type" class="form-check-label">Pessoa Jur&iacute;dica</label>
+            </div>
+            <br/>
           </div>
           <!-- Person Data -->
-          <div id="div_person_data" >
-              <label><b>Meus Dados...</b></label><br/>
-              <label>CPF </label>
-              <input type="text" name="input_person_cpf" id="input_person_cpf" size="12" maxlenght="11"></input><br/>
-              <label>Primeiro Nome </label>
-              <input type="text" name="input_person_fname" id="input_person_fname" size="24" maxlenght="24"></input><br/>
-              <label>&Uacute;ltimo Nome </label>
-              <input type="text" name="input_person_lname" id="input_person_lname" size="24" maxlenght="24"></input><br/>
-              <label>E-Mail </label>
-              <input type="email" name="input_person_email" id="input_person_email" size="32" maxlenght="32"></input><br/>
-              <label>Data de Nascimento </label>
-              <input type="text" name="input_person_bdate" id="input_person_bdate" size="8" maxlenght="8"></input><br/>
-              <label>Telefone Celular </label>
-              <input type="text" name="input_person_mphone" id="input_person_mphone" size="10" maxlenght="10"></input><br/>
-              <label>Telefone Fixo </label>
-              <input type="text" name="input_person_fphone" id="input_person_fphone" size="10" maxlenght="10"></input><br/>
-              <label>CEP </label>
-              <input type="text" name="input_person_cep" id="input_person_cep" size="8" maxlenght="8"></input><br/>
-              <label>Logradouro </label>
-              <input type="text" name="input_person_street" id="input_person_street" size="32" maxlenght="32"></input><br/>
-              <label>N&uacute;mero </label>
-              <input type="text" name="input_person_street_number" id="input_person_street_number" size="5" maxlenght="5"></input><br/>
-              <label>Complemento </label>
-              <input type="text" name="input_person_street_comp" id="input_person_street_comp" size="5" maxlenght="5"></input><br/>
-              <label>Bairro </label>
-              <input type="text" name="input_person_city_area" id="input_person_city_area" size="32" maxlenght="32"></input><br/>
-              <label>Estado </label>
-              <input type="text" name="input_person_state" id="input_person_state" size="2" maxlenght="2"></input><br/>
-              <label>Cidade </label>
-              <input type="text" name="input_person_city" id="input_person_city" size="2" maxlenght="2"></input><br/>
-              <br />
+          <div id="div_person_data" class="div_visibility_hide">
+            <legend><b>Meus Dados...</b></legend>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="input_person_cpf" class="form-check-label">CPF<span class="mandatory">*</span></label><span data-toggle="tooltip" data-placement="right" title="Hooray!"> ? </span>
+                <input type="text" name="input_person_cpf" class="form-control" id="input_person_cpf" size="12" maxlenght="11">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_person_fname" class="form-check-label">Primeiro Nome<span class="mandatory">*</span> </label>
+                <input type="text" name="input_person_fname" class="form-control" id="input_person_fname" size="24" maxlenght="24">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_person_lname" class="form-check-label">&Uacute;ltimo Nome<span class="mandatory">*</span> </label>
+                <input type="text" name="input_person_lname" class="form-control" id="input_person_lname" size="24" maxlenght="24">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="input_person_email" class="form-check-label">E-Mail<span class="mandatory">*</span></label>
+                <input type="email" name="input_person_email" class="form-control" id="input_person_email" size="32" maxlenght="32">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_person_bdate" class="form-check-label">Data de Nascimento<span class="mandatory">*</span> </label>
+                <input type="text" name="input_person_bdate" class="form-control" id="input_person_bdate" size="8" maxlenght="8">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="input_person_mphone" class="form-check-label">Telefone Celular<span class="mandatory">*</span> </label>
+                <input type="text" name="input_person_mphone" class="form-control" id="input_person_mphone" size="10" maxlenght="10">
+              </div>
+              <div class="form-group col-md-4">
+                <!-- Filler -->
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_person_fphone" class="form-check-label">Telefone Fixo </label>
+                <input type="text" name="input_person_fphone" class="form-control" id="input_person_fphone" size="10" maxlenght="10">
+              </div>
+            </div>
+
+
+            <label>CEP<span class="mandatory">*</span> </label>
+            <input type="text" name="input_person_cep" id="input_person_cep" size="8" maxlenght="8"></input><br/>
+            <label>Logradouro<span class="mandatory">*</span> </label>
+            <input type="text" name="input_person_street" id="input_person_street" size="32" maxlenght="32"></input><br/>
+            <label>N&uacute;mero<span class="mandatory">*</span> </label>
+            <input type="text" name="input_person_street_number" id="input_person_street_number" size="5" maxlenght="5"></input><br/>
+            <label>Complemento<span class="mandatory">*</span> </label>
+            <input type="text" name="input_person_street_comp" id="input_person_street_comp" size="5" maxlenght="5"></input><br/>
+            <label>Bairro<span class="mandatory">*</span> </label>
+            <input type="text" name="input_person_city_area" id="input_person_city_area" size="32" maxlenght="32"></input><br/>
+            <label>Estado<span class="mandatory">*</span> </label>
+            <input type="text" name="input_person_state" id="input_person_state" size="2" maxlenght="2"></input><br/>
+            <label>Cidade<span class="mandatory">*</span> </label>
+            <input type="text" name="input_person_city" id="input_person_city" size="2" maxlenght="2"></input><br/>
+            <br/>
           </div>
           <!-- Company Data -->
-          <div id="div_company_data">
+          <div id="div_company_data" class="div_visibility_hide">
             <label><b>Dados da Empresa... </b></label><br/>
-            <label>CNPJ </label>
+            <label>CNPJ<span class="mandatory">*</span> </label>
             <input type="text" name="input_company_cnpj" id="input_company_cnpj" size="12" maxlenght="11"></input><br/>
-            <label>Nome da Empresa </label>
+            <label>Nome da Empresa<span class="mandatory">*</span> </label>
             <input type="text" name="input_company_cnpj" id="input_company_cnpj" size="24" maxlenght="24"></input><br/>
-            <label>CEP </label>
+            <label>CEP<span class="mandatory">*</span> </label>
             <input type="text" name="input_company_cep" id="input_company_cep" size="8" maxlenght="8"></input><br/>
-            <label>Logradouro </label>
+            <label>Logradouro<span class="mandatory">*</span> </label>
             <input type="text" name="input_company_street" id="input_company_street" size="32" maxlenght="32"></input><br/>
-            <label>N&uacute;mero </label>
+            <label>N&uacute;mero<span class="mandatory">*</span> </label>
             <input type="text" name="input_company_street_number" id="input_company_street_number" size="5" maxlenght="5"></input><br/>
-            <label>Complemento </label>
+            <label>Complemento<span class="mandatory">*</span> </label>
             <input type="text" name="input_company_street_comp" id="input_company_street_comp" size="5" maxlenght="5"></input><br/>
-            <label>Bairro </label>
+            <label>Bairro<span class="mandatory">*</span> </label>
             <input type="text" name="input_company_city_area" id="input_company_city_area" size="32" maxlenght="32"></input><br/>
-            <label>Estado </label>
+            <label>Estado<span class="mandatory">*</span> </label>
             <input type="text" name="input_company_state" id="input_company_state" size="2" maxlenght="2"></input><br/>
-            <label>Cidade </label>
+            <label>Cidade<span class="mandatory">*</span> </label>
             <input type="text" name="input_company_city" id="input_company_city" size="2" maxlenght="2"></input><br/>
+            <br/>
+          </div>
+          <!-- Contact Data -->
+          <div id="div_contact_data" class="div_visibility_hide">
             <label><b>Dados do Contato... </b></label><br/>
-            <label>Primeiro Nome </label>
+            <label>Primeiro Nome<span class="mandatory">*</span> </label>
             <input type="text" name="input_company_cfname" id="input_company_cfname" size="24" maxlenght="24"></input><br/>
-            <label>&Uacute;ltimo Nome </label>
+            <label>&Uacute;ltimo Nome<span class="mandatory">*</span> </label>
             <input type="text" name="input_company_clname" id="input_company_clname" size="24" maxlenght="24"></input><br/>
-            <label>E-Mail </label>
+            <label>E-Mail<span class="mandatory">*</span> </label>
             <input type="email" name="input_company_cemail" id="input_company_cemail" size="32" maxlenght="32"></input><br/>
-            <label>Telefone Celular </label>
+            <label>Telefone Celular<span class="mandatory">*</span> </label>
             <input type="text" name="input_company_mphone" id="input_company_mphone" size="10" maxlenght="10"></input><br/>
             <label>Telefone Fixo </label>
             <input type="text" name="input_company_fphone" id="input_company_fphone" size="10" maxlenght="10"></input><br/>
-            <br />
+            <label>Ramal </label>
+            <input type="text" name="input_company_extension" id="input_company_extension" size="10" maxlenght="10"></input><br/>
+            <br/>
           </div>
           <!-- Vehicle Data -->
-          <div id="div_vehicle_data">
+          <div id="div_vehicle_data" class="div_visibility_hide">
             <label><b>Dados do Ve&iacute;culo... </b></label><br/>
             <label>Placa </label>
             <input type="text" name="input_vehicle_plate" id="input_vehicle_plate" size="8" maxlenght="7"></input><br/>
@@ -120,23 +157,17 @@
             <input type="text" name="input_vehicle_modyear" id="input_vehicle_modyear" size="5" maxlenght="4"></input><br/>
             <br/>
           </div>
-          <!-- Fleet Data
-          <div id="div_fleet_data">
-            <label><b>Dados da Frota... </b></label>
-            <label></label>
-            <br/>
-          </div> -->
           <!-- Insurance Data -->
-          <div id="div_insurance_data">
+          <div id="div_insurance_data" class="div_visibility_hide">
             <label><b>Dados do Seguro... </b></label><br/>
-            <label>Renova&ccedil;&atilde;o </label>
+            <label>Renova&ccedil;&atilde;o<span class="mandatory">*</span> </label>
             <input type="radio" name="input_insurance_renovation" id="input_insurance_renovation" value="yes">Sim</input><br/>
             <input type="radio" name="input_insurance_renovation" id="input_insurance_renovation" value="no">N&atilde;o</input><br/>
-            <label>Seguradora </label>
+            <label>Seguradora<span class="mandatory">*</span> </label>
             <input type="text" name="input_insurance_company" id="input_insurance_company" size="30" maxlenght="30"></input><br/>
-            <label>Classe de B&ocirc;nus </label>
+            <label>Classe de B&ocirc;nus<span class="mandatory">*</span> </label>
             <input type="text" name="input_insurance_bonus" id="input_insurance_bonus" size="2" maxlenght="2"></input><br/>
-            <label>Houve Sinistro </label>
+            <label>Houve Sinistro<span class="mandatory">*</span> </label>
             <input type="radio" name="input_insurance_accident" id="input_insurance_accident" value="yes">Sim</input><br/>
             <input type="radio" name="input_insurance_accident" id="input_insurance_accident" value="no">N&atilde;o</input><br/>
             <br/>
