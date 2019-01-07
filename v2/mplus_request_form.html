@@ -26,17 +26,17 @@
       <form name="insurance_request" action="." method="POST">
         <fieldset>
           <!-- Person or Company -->
-          <div id="div_requestor_type" class="form-row">
+          <div id="div_requestor_type">
             <legend><b>Eu sou...</b></legend>
-            <div class="form-group col-md-2">
-              <input type="radio" name="input_requestor_type" class="form-check-input" id="input_requestor_type" value="person" onclick="display_div('div_person_data', 'show');display_div('div_vehicle_data', 'show');display_div('div_insurance_data', 'show');display_div('div_company_data', 'hide');">
-              <label for="input_requestor_type" class="form-check-label">Pessoa F&iacute;sica</label>
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <select class="form-control" name="input_insurance_renovation" id="input_insurance_renovation" onchange="if(this.selectedIndex==1){display_div('div_person_data', 'show');display_div('div_vehicle_data', 'show');display_div('div_insurance_data', 'show');display_div('div_company_data', 'hide');display_div('div_contact_data', 'hide');} else if (this.selectedIndex==2){display_div('div_company_data', 'show');display_div('div_contact_data', 'show');display_div('div_person_data', 'hide');display_div('div_vehicle_data', 'hide');display_div('div_insurance_data', 'hide');} else {display_div('div_person_data', 'hide');display_div('div_vehicle_data', 'hide');display_div('div_insurance_data', 'hide');display_div('div_company_data', 'hide');display_div('div_contact_data', 'hide')}">
+                  <option value="---">Selecione um...</option>
+                  <option value="person">Pessoa F&iacute;sica</option>
+                  <option value="company" onselect="">Pessoa Jur&iacute;dica</option>
+                </select>
+              </div>
             </div>
-            <div class="form-group col-md-2">
-              <input type="radio" name="input_requestor_type" class="form-check-input" id="input_requestor_type" value="company" onclick="display_div('div_company_data', 'show');display_div('div_contact_data', 'show');display_div('div_person_data', 'hide');display_div('div_vehicle_data', 'hide');display_div('div_insurance_data', 'hide');">
-              <label for="input_requestor_type" class="form-check-label">Pessoa Jur&iacute;dica</label>
-            </div>
-            <br/>
           </div>
           <!-- Person Data -->
           <div id="div_person_data" class="div_visibility_hide">
@@ -203,48 +203,98 @@
               </div>
               <div class="form-group col-md-5">
                 <label for="input_vehicle_renavam" class="form-check-label">Renavam<span class="mandatory">*</span></label>
-                <input type="text" name="input_vehicle_renavam" class="form-control" id="input_vehicle_renavam" size="15" maxlenght="14"><br/>
+                <input type="text" name="input_vehicle_renavam" class="form-control" id="input_vehicle_renavam" size="15" maxlenght="14">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-2">
                 <label for="input_vehicle_manufacturer" class="form-check-label">Fabricante</label>
-                <input type="text" name="input_vehicle_manufacturer" class="form-control" id="input_vehicle_manufacturer" size="15" maxlenght="14"><br/>
+                <input type="text" name="input_vehicle_manufacturer" class="form-control" id="input_vehicle_manufacturer" size="15" maxlenght="14">
               </div>
               <div class="form-group col-md-4">
                 <label for="input_vehicle_model" class="form-check-label">Modelo</label>
-                <input type="text" name="input_vehicle_model" class="form-control" id="input_vehicle_model" size="15" maxlenght="14"><br/>
+                <input type="text" name="input_vehicle_model" class="form-control" id="input_vehicle_model" size="15" maxlenght="14">
               </div>
               <div class="form-group col-md-6">
                 <label for="input_vehicle_description" class="form-check-label">Descri&ccedil;&atilde;o</label>
-                <input type="text" name="input_vehicle_description" class="form-control" id="input_vehicle_description" size="129" maxlenght="128"><br/>
+                <input type="text" name="input_vehicle_description" class="form-control" id="input_vehicle_description" size="129" maxlenght="128">
               </div>
             </div>
             <div class="form-row">
-              <label>Ano Fabrica&ccedil;&atilde;o </label>
-              <input type="text" name="input_vehicle_manyear" id="input_vehicle_manyear" size="5" maxlenght="4"><br/>
-              <label>Ano Modelo </label>
-              <input type="text" name="input_vehicle_modyear" id="input_vehicle_modyear" size="5" maxlenght="4"><br/>
+              <div class="form-group col-md-4">
+                <label for="input_vehicle_manyear" class="form-check-label">Ano Fabrica&ccedil;&atilde;o </label>
+                <input type="text" name="input_vehicle_manyear" class="form-control" id="input_vehicle_manyear" size="5" maxlenght="4">
+              </div>
+              <div class="form-group col-md-4">
+                <!-- Filler -->
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_vehicle_modyear" class="form-check-label">Ano Modelo </label>
+                <input type="text" name="input_vehicle_modyear" class="form-control" id="input_vehicle_modyear" size="5" maxlenght="4">
+              </div>
             </div>
             <br/>
           </div>
           <!-- Insurance Data -->
           <div id="div_insurance_data" class="div_visibility_hide">
-            <label><b>Dados do Seguro... </b></label><br/>
-            <label>Renova&ccedil;&atilde;o<span class="mandatory">*</span> </label>
-            <input type="radio" name="input_insurance_renovation" id="input_insurance_renovation" value="yes">Sim<br/>
-            <input type="radio" name="input_insurance_renovation" id="input_insurance_renovation" value="no">N&atilde;o<br/>
-            <label>Seguradora<span class="mandatory">*</span> </label>
-            <input type="text" name="input_insurance_company" id="input_insurance_company" size="30" maxlenght="30"><br/>
-            <label>Classe de B&ocirc;nus<span class="mandatory">*</span> </label>
-            <input type="text" name="input_insurance_bonus" id="input_insurance_bonus" size="2" maxlenght="2"><br/>
-            <label>Houve Sinistro<span class="mandatory">*</span> </label>
-            <input type="radio" name="input_insurance_accident" id="input_insurance_accident" value="yes">Sim<br/>
-            <input type="radio" name="input_insurance_accident" id="input_insurance_accident" value="no">N&atilde;o<br/>
-            <br/>
+            <legend><b>Dados do Seguro... </b></legend><br/>
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="input_insurance_renovation" class="form-check-label">Renova&ccedil;&atilde;o<span class="mandatory">*</span></label>
+                <select class="form-control" name="input_insurance_renovation" id="input_insurance_renovation">
+                  <option value="---">Selecione um...</option>
+                  <option value="yes">Sim</option>
+                  <option value="no">N&atilde;o</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="input_insurance_company" class="form-check-label">Seguradora<span class="mandatory">*</span> </label>
+                <select class="form-control" name="input_insurance_company" id="input_insurance_company">
+                  <option value="---">Selecione uma...</option>
+                  <option value="suhai">Suhai</option>
+                  <option value="youse">Youse</option>
+                  <option value="cardiff">Cardiff</option>
+                  <option value="caixa">Caixa</option>
+                  <option value="chubb">Chubb</option>
+                  <option value="liberty">Liberty</option>
+                  <option value="generali">Generali</option>
+                  <option value="porto_seguro">Porto Seguro</option>
+                  <option value="tokio_marine">Tokio Marine</option>
+                  <option value="bradesco">Bradesco</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="input_insurance_bonus_class" class="form-check-label">Classe de B&ocirc;nus<span class="mandatory">*</span></label>
+                <select class="form-control" name="input_insurance_company" id="input_insurance_company">
+                  <option value="---">Selecione...</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="input_insurance_accident" class="form-check-label">Houve Sinistro<span class="mandatory">*</span> </label>
+                <select class="form-control" name="input_insurance_accident" id="input_insurance_accident">
+                  <option value="---">Selecione um...</option>
+                  <option value="yes">Sim</option>
+                  <option value="no">N&atilde;o</option>
+                </select>
+              </div>
+            </div>
           </div>
         </fieldset>
       </form>
+      <div class="footer">
+          © 2019 Copyright:<a href="https://mirtecnologia.com.br"> MIR Tecnologia</a>
+      </div>
     </div>
   </body>
 </html>
