@@ -62,5 +62,14 @@ Footer class (needless to say more!)
 }
 
 /* *****************************************************************************
-
+Validation Classes
 ***************************************************************************** */
+.correct /* validation is OK */
+{
+  color: #11AB00;
+}
+
+.wrong /* validation returns ERROR */
+{
+  color: #FF0000;
+}

@@ -24,8 +24,7 @@ function display_div(div_id, div_visibility)
   }
 }
 
-/* JQuery to Initialize Tooltip */
-$(document).ready(function()
-{
-  $('[data-toggle="tooltip"]').tooltip();
-});
+/* *****************************************************************************
+Validation Functions
+***************************************************************************** */
+function validate_cpf(input_id, output_id)
