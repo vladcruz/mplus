@@ -13,6 +13,7 @@
     <!-- Links to Libraries -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/mplus_form.css">
+
   </head>
 
   <body>
@@ -24,11 +25,15 @@
             <legend><b>Eu sou...</b></legend>
             <div class="form-row">
               <div class="form-group col-md-2">
-                <select class="form-control" name="input_insurance_renovation" id="input_insurance_renovation" onchange="if(this.selectedIndex==1){display_div('div_person_data', 'show');display_div('div_vehicle_data', 'show');display_div('div_insurance_data', 'show');display_div('div_company_data', 'hide');display_div('div_contact_data', 'hide');} else if (this.selectedIndex==2){display_div('div_company_data', 'show');display_div('div_contact_data', 'show');display_div('div_person_data', 'hide');display_div('div_vehicle_data', 'hide');display_div('div_insurance_data', 'hide');} else {display_div('div_person_data', 'hide');display_div('div_vehicle_data', 'hide');display_div('div_insurance_data', 'hide');display_div('div_company_data', 'hide');display_div('div_contact_data', 'hide')}">
-                  <option value="---">Selecione um...</option>
-                  <option value="person">Pessoa F&iacute;sica</option>
-                  <option value="company" onselect="">Pessoa Jur&iacute;dica</option>
-                </select>
+                <!--
+                "if(this.selectedIndex==1){} else if (this.selectedIndex==2){} else {display_div('div_person_data', 'hide');display_div('div_vehicle_data', 'hide');display_div('div_insurance_data', 'hide');display_div('div_company_data', 'hide');display_div('div_contact_data', 'hide');}">
+              -->
+                  <input type="radio" name="input_person_type" id="input_person_type" onchange="display_div('div_person_data', 'show');display_div('div_vehicle_data', 'show');display_div('div_insurance_data', 'show');display_div('div_company_data', 'hide');display_div('div_contact_data', 'hide');">
+                  <label for="input_person_type" class="radio-inline">Pessoa F&iacute;sica</label>
+              </div>
+              <div class="form-group col-md-2">
+                  <input type="radio" name="input_person_type" id="input_person_type" onchange="display_div('div_company_data', 'show');display_div('div_contact_data', 'show');display_div('div_person_data', 'hide');display_div('div_vehicle_data', 'hide');display_div('div_insurance_data', 'hide');">
+                  <label for="input_person_type" class="radio-inline">Pessoa Jur&iacute;dica</label>
               </div>
             </div>
           </div>
@@ -286,6 +291,13 @@
           </div>
         </fieldset>
       </form>
+      <div>
+        <!-- Just a Filler to have more space within the page! -->
+        <!-- I don care if it is pretty or not... It F***ing works! -->
+        <br>
+        <br>
+        <br>
+      </div>
       <div class="footer">
           © 2019 Copyright:<a href="https://mirtecnologia.com.br"> MIR Tecnologia</a>
       </div>

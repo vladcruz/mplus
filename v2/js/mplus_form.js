@@ -27,4 +27,3 @@ function display_div(div_id, div_visibility)
 /* *****************************************************************************
 Validation Functions
 ***************************************************************************** */
-function validate_cpf(input_id, output_id)
