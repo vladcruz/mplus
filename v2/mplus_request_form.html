@@ -13,7 +13,6 @@
     <!-- Links to Libraries -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/mplus_form.css">
-
   </head>
 
   <body>
@@ -25,9 +24,6 @@
             <legend><b>Eu sou...</b></legend>
             <div class="form-row">
               <div class="form-group col-md-2">
-                <!--
-                "if(this.selectedIndex==1){} else if (this.selectedIndex==2){} else {display_div('div_person_data', 'hide');display_div('div_vehicle_data', 'hide');display_div('div_insurance_data', 'hide');display_div('div_company_data', 'hide');display_div('div_contact_data', 'hide');}">
-              -->
                   <input type="radio" name="input_person_type" id="input_person_type" onchange="display_div('div_person_data', 'show');display_div('div_vehicle_data', 'show');display_div('div_insurance_data', 'show');display_div('div_company_data', 'hide');display_div('div_contact_data', 'hide');">
                   <label for="input_person_type" class="radio-inline">Pessoa F&iacute;sica</label>
               </div>
@@ -42,12 +38,17 @@
             <legend><b>Meus Dados...</b></legend>
             <div class="form-row">
               <div class="form-group col-md-4">
-                <label for="input_person_cpf" class="form-check-label">CPF<span class="mandatory">*</span></label><span id="valid_cpf"></span>
-                <input type="text" name="input_person_cpf" class="form-control" id="input_person_cpf" data-mask="000.000.000-00">
+                <label for="input_person_cpf" class="form-check-label">CPF<span class="mandatory">*</span></label>
+                <input type="text" name="input_person_cpf" class="form-control" id="input_person_cpf" data-mask="000.000.000-00" onblur="validate_cpf('input_person_cpf');" required>
               </div>
+            </div>
+            <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="input_person_fname" class="form-check-label">Primeiro Nome<span class="mandatory">*</span></label>
                 <input type="text" name="input_person_fname" class="form-control" id="input_person_fname" maxlenght="24">
+              </div>
+              <div class="form-group col-md-4">
+                <!-- Filler -->
               </div>
               <div class="form-group col-md-4">
                 <label for="input_person_lname" class="form-check-label">&Uacute;ltimo Nome<span class="mandatory">*</span></label>
