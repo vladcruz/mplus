@@ -20,42 +20,45 @@ var global_company_vars;
 // also verifies that in case the field has been filled, it is correct
 // CODES: 0 - Not filled at all | 1 - Filled correctly | -1 Filled incorrectly
 global_person_vars = {
-                    "person_cpf:0",
-                    "person_fname:0",
-                    "person_lname:0",
-                    "person_email:0",
-                    "person_bdate:0",
-                    "person_mphone:0",
-                    "person_cep:0",
-                    "person_street:0",
-                    "person_street_number:0";
-                    "person_state:0",
-                    "person_city:0",
-                    "person_city_area:0",
-                    "vehicle_plate:0",
-                    "vehicle_chassis:0",
-                    "vehicle_renavam:0",
-                    "insurance_renovation:0",
-                    "insurance_company:0",
-                    "insurance_bonus:0",
-                    "insurance_accident:0"
+                      "person_cpf":"0",
+                      "person_fname":"0",
+                      "person_lname":"0",
+                      "person_email":"0",
+                      "person_bdate":"0",
+                      "person_mphone":"0",
+                      "person_cep":"0",
+                      "person_street":"0",
+                      "person_street_number":"0",
+                      "person_state":"0",
+                      "person_city":"0",
+                      "person_city_area":"0",
+                      "vehicle_plate":"0",
+                      "vehicle_chassis":"0",
+                      "vehicle_renavam":"0",
+                      "insurance_renovation":"0",
+                      "insurance_company":"0",
+                      "insurance_bonus":"0",
+                      "insurance_accident":"0"
                     };
 
-
 global_company_vars = {
-                      "company_cnpj:0",
-                      "company_name:0",
-                      "company_cep:0",
-                      "company_street:0",
-                      "company_street_number:0",
-                      "company_state:0",
-                      "company_city:0",
-                      "company_city_area:0",
-                      "contact_fname:0",
-                      "contact_lname:0",
-                      "contact_email:0",
-                      "contact_mphone:0"
+                      "company_cnpj":"0",
+                      "company_name":"0",
+                      "company_cep":"0",
+                      "company_street":"0",
+                      "company_street_number":"0",
+                      "company_state":"0",
+                      "company_city":"0",
+                      "company_city_area":"0",
+                      "contact_fname":"0",
+                      "contact_lname":"0",
+                      "contact_email":"0",
+                      "contact_mphone":"0"
                       };
+
+/* *****************************************************************************
+UX Functions
+***************************************************************************** */
 
 // Function that changes classes on <div> visibility
 function display_div(div_id, div_visibility)
@@ -74,14 +77,13 @@ function display_div(div_id, div_visibility)
 Validation Functions
 ***************************************************************************** */
 
-// Validate Central
+// Central Validation Function
 function validate_central()
 {
 
 }
 
 // Validate the CPF Number
-
 function validate_cpf(object_id)
 {
   // Clear all error messages that may exist
@@ -105,6 +107,7 @@ function validate_cpf(object_id)
   {
       document.getElementById(object_id).className = "form-control valid_nok";
       document.getElementById(object_id).innerHTML = "";
+      global_person_vars.person_cpf = -1;
   }
   else
   {
@@ -125,10 +128,12 @@ function validate_cpf(object_id)
     {
       document.getElementById(object_id).className = "form-control valid_nok";
       document.getElementById(object_id).innerHTML = "";
+      global_person_vars.person_cpf = -1;
     }
     else
     {
       document.getElementById(object_id).className = "form-control valid_ok";
+      global_person_vars.person_cpf = 1;
     }
 
     // Verify that the second CPF Digit is Valid
@@ -148,10 +153,12 @@ function validate_cpf(object_id)
     {
       document.getElementById(object_id).className = "form-control valid_nok";
       document.getElementById(object_id).innerHTML = "";
+      global_person_vars.person_cpf = -1;
     }
     else
     {
       document.getElementById(object_id).className = "form-control valid_ok";
+      global_person_vars.person_cpf = 1;
     }
   }
 }
