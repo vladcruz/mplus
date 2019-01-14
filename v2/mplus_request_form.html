@@ -24,12 +24,12 @@
             <legend><b>Eu sou...</b></legend>
             <div class="form-row">
               <div class="form-group col-md-2">
-                  <input type="radio" name="input_person_type" id="input_person_type" onchange="display_div('div_person_data', 'show');display_div('div_vehicle_data', 'show');display_div('div_insurance_data', 'show');display_div('div_company_data', 'hide');display_div('div_contact_data', 'hide');">
+                  <input type="radio" name="input_person_type" id="input_person_type" onclick="display_div('div_person_data', 'show');display_div('div_vehicle_data', 'show');display_div('div_insurance_data', 'show');display_div('div_company_data', 'hide');display_div('div_contact_data', 'hide');display_div('div_submit_button', 'show');">
                   <label for="input_person_type" class="radio-inline">Pessoa F&iacute;sica</label>
               </div>
               <div class="form-group col-md-2">
-                  <input type="radio" name="input_person_type" id="input_person_type" onchange="display_div('div_company_data', 'show');display_div('div_contact_data', 'show');display_div('div_person_data', 'hide');display_div('div_vehicle_data', 'hide');display_div('div_insurance_data', 'hide');">
-                  <label for="input_person_type" class="radio-inline">Pessoa Jur&iacute;dica</label>
+                  <input type="radio" name="input_company_type" id="input_company_type" onclick="display_div('div_company_data', 'show');display_div('div_contact_data', 'show');display_div('div_person_data', 'hide');display_div('div_vehicle_data', 'hide');display_div('div_insurance_data', 'hide');display_div('div_submit_button', 'show');">
+                  <label for="input_company_type" class="radio-inline">Pessoa Jur&iacute;dica</label>
               </div>
             </div>
           </div>
@@ -39,75 +39,75 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="input_person_cpf" class="form-check-label">CPF<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_cpf" class="form-control" id="input_person_cpf" data-mask="000.000.000-00" onblur="validate_cpf('input_person_cpf');" >
+                <input type="text" name="input_person_cpf" class="form-control" id="input_person_cpf" data-mask="000.000.000-00" placeholder="123.456.789-00" onblur="validate_cpf('input_person_cpf');" >
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="input_person_fname" class="form-check-label">Primeiro Nome<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_fname" class="form-control" id="input_person_fname" maxlenght="24" >
+                <input type="text" name="input_person_fname" class="form-control" id="input_person_fname" data-mask="SSSSSSSSSSSSSSSSSSSSSSSS" onblur="validate_fname('input_person_fname');">
               </div>
               <div class="form-group col-md-4">
                 <!-- Filler -->
               </div>
               <div class="form-group col-md-4">
                 <label for="input_person_lname" class="form-check-label">&Uacute;ltimo Nome<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_lname" class="form-control" id="input_person_lname" maxlenght="24" s>
+                <input type="text" name="input_person_lname" class="form-control" id="input_person_lname"  data-mask="SSSSSSSSSSSSSSSSSSSSSSSS" onblur="validate_lname('input_person_lname');">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label for="input_person_email" class="form-check-label">E-Mail<span class="mandatory">*</span></label>
-                <input type="email" name="input_person_email" class="form-control" id="input_person_email" maxlenght="32" >
+                <input type="email" name="input_person_email" class="form-control" id="input_person_email" maxlength="64" placeholder="seu_email@dominio.com" onblur="validate_email('input_person_email');">
               </div>
               <div class="form-group col-md-4">
                 <label for="input_person_bdate" class="form-check-label">Data de Nascimento<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_bdate" class="form-control" id="input_person_bdate" maxlenght="8" >
+                <input type="text" name="input_person_bdate" class="form-control" id="input_person_bdate" data-mask="00/00/0000" placeholder="dd/mm/aaaa" onblur="validate_bdate('input_person_bdate');">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="input_person_mphone" class="form-check-label">Telefone Celular<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_mphone" class="form-control" id="input_person_mphone" maxlenght="10" >
+                <input type="text" name="input_person_mphone" class="form-control" id="input_person_mphone" data-mask="(00)00000-0000" placeholder="(11)99999-9999" onblur="validate_mphone('input_person_mphone');">
               </div>
               <div class="form-group col-md-4">
                 <!-- Filler -->
               </div>
               <div class="form-group col-md-4">
                 <label for="input_person_fphone" class="form-check-label">Telefone Fixo</label>
-                <input type="text" name="input_person_fphone" class="form-control" id="input_person_fphone" maxlenght="10">
+                <input type="text" name="input_person_fphone" class="form-control" id="input_person_fphone" data-mask="(00)0000-0000" placeholder="(11)9999-9999">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-2">
                 <label for="input_person_cep" class="form-check-label">CEP<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_cep" class="form-control" id="input_person_cep" maxlenght="8">
+                <input type="text" name="input_person_cep" class="form-control" id="input_person_cep" data-mask="00000-000" placeholder="12345-678" onblur="validate_cep('input_person_cep');">
               </div>
               <div class="form-group col-md-8">
                 <label for="input_person_street" class="form-check-label">Logradouro<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_street" class="form-control" id="input_person_street" maxlenght="32">
+                <input type="text" name="input_person_street" class="form-control" id="input_person_street" disabled>
               </div>
               <div class="form-group col-md-1">
                 <label for="input_person_street_number" class="form-check-label">N&uacute;mero<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_street_number" class="form-control" id="input_person_street_number" maxlenght="5">
+                <input type="text" name="input_person_street_number" class="form-control" id="input_person_street_number" data-mask="00000" placeholder="12345" onblur="validate_street_number('input_person_street_number');">
               </div>
               <div class="form-group col-md-1">
                 <label for="input_person_street_number" class="form-check-label">Compl.</label>
-                <input type="text" name="input_person_street_comp" class="form-control" id="input_person_street_comp" maxlenght="5">
+                <input type="text" name="input_person_street_comp" class="form-control" id="input_person_street_comp">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-2">
                 <label for="input_person_state" class="form-check-label">Estado<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_state" class="form-control" id="input_person_state" maxlenght="2">
+                <input type="text" name="input_person_state" class="form-control" id="input_person_state" disabled>
               </div>
               <div class="form-group col-md-6">
                 <label for="input_person_city" class="form-check-label">Cidade<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_city" class="form-control" id="input_person_city" maxlenght="2">
+                <input type="text" name="input_person_city" class="form-control" id="input_person_city" disabled>
               </div>
               <div class="form-group col-md-4">
                 <label for="input_person_city_area" class="form-check-label">Bairro<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_city_area" class="form-control" id="input_person_city_area" maxlenght="32">
+                <input type="text" name="input_person_city_area" class="form-control" id="input_person_city_area" disabled>
               </div>
             </div>
           </div>
@@ -265,7 +265,7 @@
               </div>
               <div class="form-group col-md-3">
                 <label for="input_insurance_bonus_class" class="form-check-label">Classe de B&ocirc;nus<span class="mandatory">*</span></label>
-                <select class="form-control" name="input_insurance_company" id="input_insurance_company">
+                <select class="form-control" name="input_insurance_bonus_class" id="input_insurance_bonus_class">
                   <option value="---">Selecione...</option>
                   <option value="0">0</option>
                   <option value="1">1</option>
@@ -291,10 +291,14 @@
             </div>
           </div>
         </fieldset>
+        <div id="div_submit_button" class="div_visibility_hide">
+          <button type="button" class="btn btn-warning" onclick="validate_central();">Enviar</button>
+        </div>
+        <div id="div_error_msg"></div>
       </form>
       <div>
         <!-- Just a Filler to have more space within the page! -->
-        <!-- I don care if it is pretty or not... It F***ing works! -->
+        <!-- I don't care if it is pretty or not... It F***ing works! -->
         <br>
         <br>
         <br>
