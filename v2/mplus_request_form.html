@@ -195,15 +195,15 @@
             <div class="form-row">
               <div class="form-group col-md-2">
                 <label for="input_vehicle_plate" class="form-check-label">Placa<span class="mandatory">*</span></label>
-                <input type="text" name="input_vehicle_plate" class="form-control" id="input_vehicle_plate" size="8" maxlenght="7">
+                <input type="text" name="input_vehicle_plate" class="form-control" id="input_vehicle_plate" size="8" data-mask="SSS-0000" placeholder="AAA-1234" onblur="validate_vehicle_plate('input_vehicle_plate');">
               </div>
               <div class="form-group col-md-5">
                 <label for="input_vehicle_chassis" class="form-check-label">Chassis<span class="mandatory">*</span></label>
-                <input type="text" name="input_vehicle_chassis" class="form-control" id="input_vehicle_chassis" size="15" maxlenght="14">
+                <input type="text" name="input_vehicle_chassis" class="form-control" id="input_vehicle_chassis" size="15" data-mask="AAA.AAAAAA.AA.AAAAAA" onblur="validate_vehicle_chassis('input_vehicle_chassis')">
               </div>
               <div class="form-group col-md-5">
                 <label for="input_vehicle_renavam" class="form-check-label">Renavam<span class="mandatory">*</span></label>
-                <input type="text" name="input_vehicle_renavam" class="form-control" id="input_vehicle_renavam" size="15" maxlenght="14">
+                <input type="text" name="input_vehicle_renavam" class="form-control" id="input_vehicle_renavam" size="15" data-mask="00000000000" onblur="validate_vehicle_renavam('input_vehicle_renavam')">
               </div>
             </div>
             <div class="form-row">

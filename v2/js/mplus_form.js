@@ -11,6 +11,10 @@ Date          | Author                | Description
 05/01/2019    | Vladmir Cruz          | Creation of the file
 ***************************************************************************** */
 
+/* *****************************************************************************
+Global Variables and Initialization Routines
+***************************************************************************** */
+
 // Global Variables
 var global_person_vars;
 var global_company_vars;
@@ -161,7 +165,9 @@ function validate_central()
   }
 }
 
-// Validate the CPF Number
+/* **************************************************************************
+Validate the CPF Number
+************************************************************************** */
 function validate_cpf(object_id)
 {
   // Clear all error messages that may exist
@@ -241,13 +247,16 @@ function validate_cpf(object_id)
   }
 }
 
-// Validate First Name
+/* **************************************************************************
+Validate First Name
+************************************************************************** */
 function validate_fname(object_id)
 {
   var fname;
 
   fname = document.getElementById(object_id).value;
 
+  // Checks the Name Length
   if(fname.length < 3)
   {
     document.getElementById(object_id).className = "form-control valid_nok";
@@ -261,13 +270,16 @@ function validate_fname(object_id)
   }
 }
 
-// Validate Last Name
+/* **************************************************************************
+Validate Last Name
+************************************************************************** */
 function validate_lname(object_id)
 {
   var lname;
 
   lname = document.getElementById(object_id).value;
 
+  // Checks the Name Length
   if(lname.length < 3)
   {
     document.getElementById(object_id).className = "form-control valid_nok";
@@ -281,7 +293,9 @@ function validate_lname(object_id)
   }
 }
 
-// Validate E-Mail
+/* **************************************************************************
+Validate E-Mail Address (Format Only)
+************************************************************************** */
 function validate_email(object_id)
 {
   var email;
@@ -301,7 +315,9 @@ function validate_email(object_id)
   }
 }
 
-// Validate Mobile Phone
+/* **************************************************************************
+Validate Mobile Phone
+************************************************************************** */
 function validate_mphone(object_id)
 {
   var mphone;
@@ -321,7 +337,10 @@ function validate_mphone(object_id)
   }
 }
 
-// Validate CEP
+/* **************************************************************************
+Validate CEP (Format and Existence)
+************************************************************************** */
+// Callback Funtion to process response from JSON
 function callback_cep(cep)
 {
   if (!("erro" in cep))
@@ -338,15 +357,18 @@ function callback_cep(cep)
   }
 }
 
+// Function to process the CEP address and fill out the form
 function validate_cep(object_id)
 {
   var cep_id = document.getElementById(object_id).value;
 
-  //Cleans the variables
+  //Cleans the CEP String
   var cep = cep_id.replace(/\D/g, '');
 
+  // If field not empty
   if (cep != "")
   {
+    // Cehcks if there are only numbers
     var validacep = /^[0-9]{8}$/;
 
     if(validacep.test(cep))
@@ -357,27 +379,33 @@ function validate_cep(object_id)
       document.getElementById('input_person_city').value="...";
       document.getElementById('input_person_state').value="...";
 
+      // Creates JAVASCRIPT Object
       var script = document.createElement('script');
 
+      // Invokes the Query for CEP
       script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=callback_cep';
 
+      // Appends the results within the Page
       document.body.appendChild(script);
     }
     else
     {
+      // Malformed CEP
       alert("CEP Inválido!");
       document.getElementById(object_id).className = "form-control valid_nok";
       document.getElementById(object_id).value = "";
       global_person_vars.person_cep = "FALSE";
     }
   }
-  else
+  else // If field empty
   {
-    alert("CEP não encontradof.");
+    alert("CEP não encontrado!");
   }
 }
 
-//Validate Street Number
+/* **************************************************************************
+Validate Street Number
+************************************************************************** */
 function validate_street_number(object_id)
 {
   var street_number;
@@ -394,5 +422,71 @@ function validate_street_number(object_id)
   {
     document.getElementById(object_id).className = "form-control valid_ok";
     global_person_vars.person_street_number = "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Car Plate (Format Only)
+************************************************************************** */
+function validate_vehicle_plate(object_id)
+{
+  var vehicle_plate;
+
+  vehicle_plate = document.getElementById(object_id).value;
+
+  if(vehicle_plate.length < 8)
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    document.getElementById(object_id).value = "";
+    global_person_vars.vehicle_plate = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    global_person_vars.vehicle_plate = "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Car Chassis (Format Only)
+************************************************************************** */
+function validate_vehicle_chassis(object_id)
+{
+  var vehicle_chassis;
+
+  vehicle_chassis = document.getElementById(object_id).value;
+
+  if(vehicle_chassis.length < 20)
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    document.getElementById(object_id).value = "";
+    global_person_vars.vehicle_chassis = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    global_person_vars.vehicle_chassis = "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Car RENAVAM (Format Only)
+************************************************************************** */
+function validate_vehicle_renavam(object_id)
+{
+  var vehicle_renavam;
+
+  vehicle_renavam = document.getElementById(object_id).value;
+
+  if(vehicle_renavam.length == 9 || vehicle_renavam.length == 11)
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    global_person_vars.vehicle_renavam = "TRUE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    document.getElementById(object_id).value = "";
+    global_person_vars.vehicle_renavam = "FALSE";
   }
 }
