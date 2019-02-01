@@ -19,7 +19,9 @@
     <div class="container">
       <form name="insurance_request" action="." method="POST">
         <fieldset>
-          <!-- Person or Company -->
+          <!-- ************************************************************************************************** -->
+          <!-- Person or Company ******************************************************************************** -->
+          <!-- ************************************************************************************************** -->
           <div id="div_requestor_type">
             <legend><b>Eu sou...</b></legend>
             <div class="form-row">
@@ -28,31 +30,49 @@
                   <label for="input_person_type" class="radio-inline">Pessoa F&iacute;sica</label>
               </div>
               <div class="form-group col-md-2">
-                  <input type="radio" name="input_company_type" id="input_company_type" onclick="display_div('div_company_data', 'show');display_div('div_contact_data', 'show');display_div('div_person_data', 'hide');display_div('div_vehicle_data', 'hide');display_div('div_insurance_data', 'hide');display_div('div_submit_button', 'show');">
-                  <label for="input_company_type" class="radio-inline">Pessoa Jur&iacute;dica</label>
+                  <input type="radio" name="input_person_type" id="input_person_type" onclick="display_div('div_company_data', 'show');display_div('div_contact_data', 'show');display_div('div_person_data', 'hide');display_div('div_vehicle_data', 'hide');display_div('div_insurance_data', 'hide');display_div('div_submit_button', 'show');">
+                  <label for="input_person_type" class="radio-inline">Pessoa Jur&iacute;dica</label>
               </div>
             </div>
           </div>
-          <!-- Person Data -->
+          <!-- ************************************************************************************************** -->
+          <!-- Person Data ************************************************************************************** -->
+          <!-- ************************************************************************************************** -->
           <div id="div_person_data" class="div_visibility_hide">
             <legend><b>Meus Dados...</b></legend>
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="input_person_cpf" class="form-check-label">CPF<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_cpf" class="form-control" id="input_person_cpf" data-mask="000.000.000-00" placeholder="123.456.789-00" onblur="validate_cpf('input_person_cpf');" >
+                <input type="text" name="input_person_cpf" class="form-control" id="input_person_cpf" data-mask="000.000.000-00" placeholder="123.456.789-00" onblur="validate_cpf('input_person_cpf');">
+              </div>
+              <div class="form-group col-md-8">
+                <label for="input_person_name" class="form-check-label">Nome<span class="mandatory">*</span></label>
+                <input type="text" name="input_person_name" class="form-control" id="input_person_name" onblur="validate_name('input_person_name');">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-4">
-                <label for="input_person_fname" class="form-check-label">Primeiro Nome<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_fname" class="form-control" id="input_person_fname" data-mask="SSSSSSSSSSSSSSSSSSSSSSSS" onblur="validate_fname('input_person_fname');">
+                <label for="input_person_sex" class="form-check-label">Sexo<span class="mandatory">*</span></label>
+                <select class="form-control" name="input_person_sex" id="input_person_sex" onblur="">
+                  <option value="---">Selecione...</option>
+                  <option value="male">Masculino</option>
+                  <option value="female">Feminino</option>
+                </select>
               </div>
               <div class="form-group col-md-4">
                 <!-- Filler -->
               </div>
               <div class="form-group col-md-4">
-                <label for="input_person_lname" class="form-check-label">&Uacute;ltimo Nome<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_lname" class="form-control" id="input_person_lname"  data-mask="SSSSSSSSSSSSSSSSSSSSSSSS" onblur="validate_lname('input_person_lname');">
+                <label for="input_person_marital" class="form-check-label">Estado Civil<span class="mandatory">*</span></label>
+                <select class="form-control" name="input_person_marital" id="input_person_marital" onblur="">
+                  <option value="---">Selecione...</option>
+                  <option value="single">Solteiro</option>
+                  <option value="married">Casado</option>
+                  <option value="divorced">Divorciado</option>
+                  <option value="widowed">Vi&uacute;vo</option>
+                  <option value="separated">Separado</option>
+                  <option value="stable_union">Uni&atilde;o Est&aacute;vel</option>
+                </select>
               </div>
             </div>
             <div class="form-row">
@@ -110,8 +130,247 @@
                 <input type="text" name="input_person_city_area" class="form-control" id="input_person_city_area" disabled>
               </div>
             </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="input_person_home_type" class="form-check-label">Tipo de Resid&ecirc;ncia<span class="mandatory">*</span></label>
+                <select class="form-control" name="input_person_home_type" id="input_person_home_type" onchange="validate_home_type('input_person_home_type');">
+                  <option value="---">Selecione um...</option>
+                  <option value="house">Casa</option>
+                  <option value="apartment">Apartamento</option>
+                  <option value="condo">Condom&iacute;nio</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_person_home_garage" class="form-check-label">Possui Garagem na Resid&ecirc;ncia<span class="mandatory">*</span></label>
+                <select class="form-control" name="input_person_home_garage" id="input_person_home_garage" onchange="validate_home_garage('input_person_home_garage','input_person_home_garage_door');">
+                    <option value="---">Selecione um...</option>
+                    <option value="yes">Sim</option>
+                    <option value="no">N&atilde;o</option>
+                </select>                  
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_person_home_garage_door" class="form-check-label">Tipo de Port&atilde;o<span class="mandatory">*</span></label>
+                <select class="form-control" name="input_person_home_garage_door" id="input_person_home_garage_door" onchange="validate_home_garage_door('input_person_home_garage_door');" disabled>
+                    <option value="---">Selecione um...</option>
+                    <option value="electronic">Eletr&ocirc;nico</option>
+                    <option value="manual">Manual</option>
+                </select>                  
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="input_person_owned_vehicles" class="form-check-label">Quant. Ve&iacute;culos na Resid&ecirc;ncia</label>
+                <select class="form-control" name="input_person_owned_vehicles" id="input_person_owned_vehicles" onchange="">
+                  <option value="---">Selecione um...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="4+">Mais de 4</option>
+                </select>                  
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_person_other_drivers" class="form-check-label">Outros Condutores</span></label>
+                <select class="form-control" name="input_person_other_drivers" id="input_person_other_drivers" onchange="validate_person_other_drivers('input_person_other_drivers','input_person_other_drivers_age')">
+                  <option value="---">Selecione um...</option>
+                  <option value="no residents">Não possui outros Residentes</option>
+                  <option value="male resident">Sim, do Sexo Masculino</option>
+                  <option value="female resident">Sim, do Sexo Feminino</option>
+                  <option value="male and female resident">Sim, de Ambos os Sexos</option>
+                </select>                  
+              </div>
+              <div class="form-group col-md-4">
+                  <label for="input_person_other_drivers_age" class="form-check-label">Faixa Et&aacute;ria dos Condutores</span></label>
+                  <select class="form-control" name="input_person_other_drivers_age" id="input_person_other_drivers_age" onchange="enable_person_other_drivers_age('input_person_other_drivers','input_person_other_drivers_age')" disabled>
+                    <option value="---">Selecione um...</option>
+                    <option value="18 to 21">18 - 21 Anos</option>
+                    <option value="22 to 24">22 - 24 Anos</option>
+                    <option value="25+">25 ou mais</option>
+                </select>                  
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="input_person_use_vehicle_work" class="form-check-label">Utliza p/ Trabalho</span></label>
+                <select class="form-control" name="input_person_use_vehicle_work" id="input_person_use_vehicle_work" onchange="validate_person_use_work('input_person_use_vehicle_work','input_person_garage_work','input_person_distance_work')">
+                  <option value="---">Selecione um...</option>
+                  <option value="yes">Sim</option>
+                  <option value="no">N&atilde;o</option>
+                </select>                  
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_person_garage_work" class="form-check-label">Possui Garagem no Trabalho</span></label>
+                <select class="form-control" name="input_person_garage_work" id="input_person_garage_work" onchange="enable_person_use_work('input_person_use_vehicle_work','input_person_garage_work','input_person_distance_work')" disabled>
+                  <option value="---">Selecione um...</option>
+                  <option value="yes">Sim</option>
+                  <option value="no">N&atilde;o</option>
+                </select>                  
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_person_distance_work" class="form-check-label">Dist&acirc;ncia at&eacute; o Trabalho</span></label>
+                <select class="form-control" name="input_person_distance_work" id="input_person_distance_work" onchange="enable_person_use_work('input_person_use_vehicle_work','input_person_garage_work','input_person_distance_work')" disabled>
+                  <option value="---">Selecione um...</option>
+                  <option value="-10">At&eacute; 10KM</option>
+                  <option value="-20">At&eacute; 20KM</option>
+                  <option value="-30">At&eacute; 30KM</option>
+                  <option value="+30">Acima 30KM</option>
+                </select>                  
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="input_person_use_vehicle_study" class="form-check-label">Utliza p/ Estudo</span></label>
+                <select class="form-control" name="input_person_use_vehicle_study" id="input_person_use_vehicle_study" onchange="validate_person_use_study('input_person_use_vehicle_study','input_person_use_vehicle_study_garage')">
+                  <option value="---">Selecione um...</option>
+                  <option value="yes">Sim</option>
+                  <option value="no">N&atilde;o</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <!-- Filler -->
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_person_use_vehicle_study_garage" class="form-check-label">Possui Garagem na Escola</span></label>
+                <select class="form-control" name="input_person_use_vehicle_study_garage" id="input_person_use_vehicle_study_garage" onchange="enable_person_use_study('input_person_use_vehicle_study','input_person_use_vehicle_study_garage')" disabled>
+                  <option value="---">Selecione um...</option>
+                  <option value="yes">Sim</option>
+                  <option value="no">N&atilde;o</option>
+                </select>                
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="input_person_use_vehicle_professionaly" class="form-check-label">Usa Ve&iacute;culo Profissionalmente?</span></label>
+                <select class="form-control" name="input_person_use_vehicle_professionaly" id="input_person_use_vehicle_professionaly">
+                  <option value="---">Selecione um...</option>
+                  <option value="yes">Sim</option>
+                  <option value="no">N&atilde;o</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <!-- Filler -->
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_person_use_vehicle_distance" class="form-check-label">M&eacute;dia de KMs Mensal</span></label>
+                <select class="form-control" name="input_person_use_vehicle_distance" id="input_person_use_vehicle_distance">
+                  <option value="---">Selecione um...</option>
+                  <option value="-1500">At&eacute; 1500KM</option>
+                  <option value="-2000">At&eacute; 2000KM</option>
+                  <option value="-2500">At&eacute; 2500KM</option>
+                  <option value="-3000">At&eacute; 3000KM</option>
+                  <option value="-3500">At&eacute; 3500KM</option>
+                  <option value="-4000">At&eacute; 4000KM</option>
+                  <option value="-4500">At&eacute; 4500KM</option>
+                  <option value="-5000">At&eacute; 5000KM</option>
+                  <option value="+5000">Mais de 5000KM</option>
+                </select>                
+              </div>
+            </div>
           </div>
-          <!-- Company Data -->
+          <!-- ************************************************************************************************** -->
+          <!-- Vehicle Data ************************************************************************************* -->
+          <!-- ************************************************************************************************** -->
+          <div id="div_vehicle_data" class="div_visibility_hide">
+            <legend><b>Dados do Ve&iacute;culo... </b></legend><br/>
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <label for="input_vehicle_plate" class="form-check-label">Placa<span class="mandatory">*</span></label>
+                <input type="text" name="input_vehicle_plate" class="form-control" id="input_vehicle_plate" size="8" data-mask="SSS-0000" placeholder="AAA-1234" onblur="validate_vehicle_plate('input_vehicle_plate');">
+              </div>
+              <div class="form-group col-md-5">
+                <label for="input_vehicle_chassis" class="form-check-label">Chassis<span class="mandatory">*</span></label>
+                <input type="text" name="input_vehicle_chassis" class="form-control" id="input_vehicle_chassis" size="15" data-mask="AAAAAAAAAAAAAAAAA" onblur="validate_vehicle_chassis('input_vehicle_chassis')">
+              </div>
+              <div class="form-group col-md-5">
+                <label for="input_vehicle_manufacturer" class="form-check-label">Fabricante</label>
+                <input type="text" name="input_vehicle_manufacturer" class="form-control" id="input_vehicle_manufacturer" size="15" maxlenght="14">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="input_vehicle_model" class="form-check-label">Modelo</label>
+                <input type="text" name="input_vehicle_model" class="form-control" id="input_vehicle_model" size="15" maxlenght="14">
+              </div>
+              <div class="form-group col-md-8">
+                <label for="input_vehicle_description" class="form-check-label">Descri&ccedil;&atilde;o</label>
+                <input type="text" name="input_vehicle_description" class="form-control" id="input_vehicle_description" size="129" maxlenght="128">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="input_vehicle_manyear" class="form-check-label">Ano Fabrica&ccedil;&atilde;o </label>
+                <input type="text" name="input_vehicle_manyear" class="form-control" id="input_vehicle_manyear" data-mask="0000" onblur="validate_vehicle_man_year('input_vehicle_manyear','input_vehicle_modyear')">
+              </div>
+              <div class="form-group col-md-4">
+                <!-- Filler -->
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_vehicle_modyear" class="form-check-label">Ano Modelo </label>
+                <input type="text" name="input_vehicle_modyear" class="form-control" id="input_vehicle_modyear" data-mask="0000" onblur="validate_vehicle_mod_year('input_vehicle_modyear', 'input_vehicle_manyear')" disabled>
+              </div>
+            </div>
+            <br/>
+          </div>
+          <!-- ************************************************************************************************** -->
+          <!-- Insurance Data *********************************************************************************** -->
+          <!-- ************************************************************************************************** -->
+          <div id="div_insurance_data" class="div_visibility_hide">
+            <legend><b>Dados do Seguro... </b></legend><br/>
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="input_insurance_renovation" class="form-check-label">Renova&ccedil;&atilde;o<span class="mandatory">*</span></label>
+                <select class="form-control" name="input_insurance_renovation" id="input_insurance_renovation" onchange="validate_insurance_renewal('input_insurance_renovation','input_insurance_company','input_insurance_bonus_class','input_insurance_accident');">
+                  <option value="---">Selecione um...</option>
+                  <option value="yes">Sim</option>
+                  <option value="no">N&atilde;o</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="input_insurance_company" class="form-check-label">Seguradora<span class="mandatory">*</span> </label>
+                <select class="form-control" name="input_insurance_company" id="input_insurance_company" disabled>
+                  <option value="---">Selecione uma...</option>
+                  <option value="suhai">Suhai</option>
+                  <option value="youse">Youse</option>
+                  <option value="cardiff">Cardiff</option>
+                  <option value="caixa">Caixa</option>
+                  <option value="chubb">Chubb</option>
+                  <option value="liberty">Liberty</option>
+                  <option value="generali">Generali</option>
+                  <option value="porto_seguro">Porto Seguro</option>
+                  <option value="tokio_marine">Tokio Marine</option>
+                  <option value="bradesco">Bradesco</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="input_insurance_bonus_class" class="form-check-label">Classe de B&ocirc;nus<span class="mandatory">*</span></label>
+                <select class="form-control" name="input_insurance_bonus_class" id="input_insurance_bonus_class" disabled>
+                  <option value="---">Selecione...</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="input_insurance_accident" class="form-check-label">Houve Sinistro<span class="mandatory">*</span> </label>
+                <select class="form-control" name="input_insurance_accident" id="input_insurance_accident" disabled>
+                  <option value="---">Selecione um...</option>
+                  <option value="yes">Sim</option>
+                  <option value="no">N&atilde;o</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- ************************************************************************************************** -->
+          <!--  Company Data ************************************************************************************ -->
+          <!-- ************************************************************************************************** -->
           <div id="div_company_data" class="div_visibility_hide">
             <legend><b>Dados da Empresa... </b></legend><br/>
             <div class="form-row">
@@ -189,107 +448,6 @@
               </div>
             </div>
           </div>
-          <!-- Vehicle Data -->
-          <div id="div_vehicle_data" class="div_visibility_hide">
-            <legend><b>Dados do Ve&iacute;culo... </b></legend><br/>
-            <div class="form-row">
-              <div class="form-group col-md-2">
-                <label for="input_vehicle_plate" class="form-check-label">Placa<span class="mandatory">*</span></label>
-                <input type="text" name="input_vehicle_plate" class="form-control" id="input_vehicle_plate" size="8" data-mask="SSS-0000" placeholder="AAA-1234" onblur="validate_vehicle_plate('input_vehicle_plate');">
-              </div>
-              <div class="form-group col-md-5">
-                <label for="input_vehicle_chassis" class="form-check-label">Chassis<span class="mandatory">*</span></label>
-                <input type="text" name="input_vehicle_chassis" class="form-control" id="input_vehicle_chassis" size="15" data-mask="AAA.AAAAAA.AA.AAAAAA" onblur="validate_vehicle_chassis('input_vehicle_chassis')">
-              </div>
-              <div class="form-group col-md-5">
-                <label for="input_vehicle_renavam" class="form-check-label">Renavam<span class="mandatory">*</span></label>
-                <input type="text" name="input_vehicle_renavam" class="form-control" id="input_vehicle_renavam" size="15" data-mask="00000000000" onblur="validate_vehicle_renavam('input_vehicle_renavam')">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-2">
-                <label for="input_vehicle_manufacturer" class="form-check-label">Fabricante</label>
-                <input type="text" name="input_vehicle_manufacturer" class="form-control" id="input_vehicle_manufacturer" size="15" maxlenght="14">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="input_vehicle_model" class="form-check-label">Modelo</label>
-                <input type="text" name="input_vehicle_model" class="form-control" id="input_vehicle_model" size="15" maxlenght="14">
-              </div>
-              <div class="form-group col-md-6">
-                <label for="input_vehicle_description" class="form-check-label">Descri&ccedil;&atilde;o</label>
-                <input type="text" name="input_vehicle_description" class="form-control" id="input_vehicle_description" size="129" maxlenght="128">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-4">
-                <label for="input_vehicle_manyear" class="form-check-label">Ano Fabrica&ccedil;&atilde;o </label>
-                <input type="text" name="input_vehicle_manyear" class="form-control" id="input_vehicle_manyear" size="5" maxlenght="4">
-              </div>
-              <div class="form-group col-md-4">
-                <!-- Filler -->
-              </div>
-              <div class="form-group col-md-4">
-                <label for="input_vehicle_modyear" class="form-check-label">Ano Modelo </label>
-                <input type="text" name="input_vehicle_modyear" class="form-control" id="input_vehicle_modyear" size="5" maxlenght="4">
-              </div>
-            </div>
-            <br/>
-          </div>
-          <!-- Insurance Data -->
-          <div id="div_insurance_data" class="div_visibility_hide">
-            <legend><b>Dados do Seguro... </b></legend><br/>
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <label for="input_insurance_renovation" class="form-check-label">Renova&ccedil;&atilde;o<span class="mandatory">*</span></label>
-                <select class="form-control" name="input_insurance_renovation" id="input_insurance_renovation">
-                  <option value="---">Selecione um...</option>
-                  <option value="yes">Sim</option>
-                  <option value="no">N&atilde;o</option>
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label for="input_insurance_company" class="form-check-label">Seguradora<span class="mandatory">*</span> </label>
-                <select class="form-control" name="input_insurance_company" id="input_insurance_company">
-                  <option value="---">Selecione uma...</option>
-                  <option value="suhai">Suhai</option>
-                  <option value="youse">Youse</option>
-                  <option value="cardiff">Cardiff</option>
-                  <option value="caixa">Caixa</option>
-                  <option value="chubb">Chubb</option>
-                  <option value="liberty">Liberty</option>
-                  <option value="generali">Generali</option>
-                  <option value="porto_seguro">Porto Seguro</option>
-                  <option value="tokio_marine">Tokio Marine</option>
-                  <option value="bradesco">Bradesco</option>
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label for="input_insurance_bonus_class" class="form-check-label">Classe de B&ocirc;nus<span class="mandatory">*</span></label>
-                <select class="form-control" name="input_insurance_bonus_class" id="input_insurance_bonus_class">
-                  <option value="---">Selecione...</option>
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-              </div>
-              <div class="form-group col-md-3">
-                <label for="input_insurance_accident" class="form-check-label">Houve Sinistro<span class="mandatory">*</span> </label>
-                <select class="form-control" name="input_insurance_accident" id="input_insurance_accident">
-                  <option value="---">Selecione um...</option>
-                  <option value="yes">Sim</option>
-                  <option value="no">N&atilde;o</option>
-                </select>
-              </div>
-            </div>
-          </div>
         </fieldset>
         <div id="div_submit_button" class="div_visibility_hide">
           <button type="button" class="btn btn-warning" onclick="validate_central();">Enviar</button>
@@ -313,7 +471,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-    <script src="js/mplus_form.js"></script>
+    <script src="js/mplus_ux.js"></script>
+    <script src="js/mplus_validate_central.js"></script>
+    <script src="js/mplus_validate_person.js"></script>
+    <script src="js/mplus_validate_vehicle.js"></script>
+    <script src="js/mplus_validate_insurance.js"></script>
 
   </body>
 </html>
