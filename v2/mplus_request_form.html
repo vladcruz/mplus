@@ -101,7 +101,7 @@
             <div class="form-row">
               <div class="form-group col-md-2">
                 <label for="input_person_cep" class="form-check-label">CEP<span class="mandatory">*</span></label>
-                <input type="text" name="input_person_cep" class="form-control" id="input_person_cep" data-mask="00000-000" placeholder="12345-678" onblur="validate_cep('input_person_cep');">
+                <input type="text" name="input_person_cep" class="form-control" id="input_person_cep" data-mask="00000-000" placeholder="12345-678" onblur="validate_person_cep('input_person_cep');">
               </div>
               <div class="form-group col-md-8">
                 <label for="input_person_street" class="form-check-label">Logradouro<span class="mandatory">*</span></label>
@@ -146,7 +146,7 @@
                     <option value="---">Selecione um...</option>
                     <option value="yes">Sim</option>
                     <option value="no">N&atilde;o</option>
-                </select>                  
+                </select>
               </div>
               <div class="form-group col-md-4">
                 <label for="input_person_home_garage_door" class="form-check-label">Tipo de Port&atilde;o<span class="mandatory">*</span></label>
@@ -154,7 +154,7 @@
                     <option value="---">Selecione um...</option>
                     <option value="electronic">Eletr&ocirc;nico</option>
                     <option value="manual">Manual</option>
-                </select>                  
+                </select>
               </div>
             </div>
             <div class="form-row">
@@ -167,7 +167,7 @@
                   <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="4+">Mais de 4</option>
-                </select>                  
+                </select>
               </div>
               <div class="form-group col-md-4">
                 <label for="input_person_other_drivers" class="form-check-label">Outros Condutores</span></label>
@@ -177,7 +177,7 @@
                   <option value="male resident">Sim, do Sexo Masculino</option>
                   <option value="female resident">Sim, do Sexo Feminino</option>
                   <option value="male and female resident">Sim, de Ambos os Sexos</option>
-                </select>                  
+                </select>
               </div>
               <div class="form-group col-md-4">
                   <label for="input_person_other_drivers_age" class="form-check-label">Faixa Et&aacute;ria dos Condutores</span></label>
@@ -186,7 +186,7 @@
                     <option value="18 to 21">18 - 21 Anos</option>
                     <option value="22 to 24">22 - 24 Anos</option>
                     <option value="25+">25 ou mais</option>
-                </select>                  
+                </select>
               </div>
             </div>
             <div class="form-row">
@@ -196,7 +196,7 @@
                   <option value="---">Selecione um...</option>
                   <option value="yes">Sim</option>
                   <option value="no">N&atilde;o</option>
-                </select>                  
+                </select>
               </div>
               <div class="form-group col-md-4">
                 <label for="input_person_garage_work" class="form-check-label">Possui Garagem no Trabalho</span></label>
@@ -204,7 +204,7 @@
                   <option value="---">Selecione um...</option>
                   <option value="yes">Sim</option>
                   <option value="no">N&atilde;o</option>
-                </select>                  
+                </select>
               </div>
               <div class="form-group col-md-4">
                 <label for="input_person_distance_work" class="form-check-label">Dist&acirc;ncia at&eacute; o Trabalho</span></label>
@@ -214,7 +214,7 @@
                   <option value="-20">At&eacute; 20KM</option>
                   <option value="-30">At&eacute; 30KM</option>
                   <option value="+30">Acima 30KM</option>
-                </select>                  
+                </select>
               </div>
             </div>
             <div class="form-row">
@@ -235,7 +235,7 @@
                   <option value="---">Selecione um...</option>
                   <option value="yes">Sim</option>
                   <option value="no">N&atilde;o</option>
-                </select>                
+                </select>
               </div>
             </div>
             <div class="form-row">
@@ -263,7 +263,7 @@
                   <option value="-4500">At&eacute; 4500KM</option>
                   <option value="-5000">At&eacute; 5000KM</option>
                   <option value="+5000">Mais de 5000KM</option>
-                </select>                
+                </select>
               </div>
             </div>
           </div>
@@ -376,7 +376,7 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="input_company_cnpj" class="form-check-label">CNPJ<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_cnpj" class="form-control" id="input_company_cnpj" maxlenght="15">
+                <input type="text" name="input_company_cnpj" class="form-control" id="input_company_cnpj" data-mask="00.000.000/0000-00" placeholder="12.345.567/0000-00" onblur="validate_cnpj('input_company_cnpj');">
               </div>
               <div class="form-group col-md-8">
                 <label for="input_company_name" class="form-check-label">Nome da Empresa<span class="mandatory">*</span></label>
@@ -386,11 +386,11 @@
             <div class="form-row">
               <div class="form-group col-md-2">
                 <label for="input_company_cep" class="form-check-label">CEP<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_cep" class="form-control" id="input_company_cep" maxlenght="8">
+                <input type="text" name="input_company_cep" class="form-control" id="input_company_cep" data-mask="00000-000" placeholder="12345-678" onchange="validate_company_cep('input_company_cep');">
               </div>
               <div class="form-group col-md-6">
                 <label for="input_company_street" class="form-check-label">Logradouro<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_street" class="form-control" id="input_company_street" maxlenght="32">
+                <input type="text" name="input_company_street" class="form-control" id="input_company_street" maxlenght="32" disabled>
               </div>
               <div class="form-group col-md-2">
                 <label for="input_company_street_number" class="form-check-label">N&uacute;mero<span class="mandatory">*</span></label>
@@ -404,15 +404,15 @@
             <div class="form-row">
               <div class="form-group col-md-2">
                 <label for="input_company_state" class="form-check-label">Estado<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_state" class="form-control" id="input_company_state" maxlenght="2">
+                <input type="text" name="input_company_state" class="form-control" id="input_company_state" disabled>
               </div>
               <div class="form-group col-md-6">
                 <label for="input_company_city" class="form-check-label">Cidade<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_city" class="form-control" id="input_company_city" maxlenght="2">
+                <input type="text" name="input_company_city" class="form-control" id="input_company_city" disabled>
               </div>
               <div class="form-group col-md-4">
                 <label for="input_company_city_area" class="form-check-label">Bairro<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_city_area" class="form-control" id="input_company_city_area" maxlenght="32">
+                <input type="text" name="input_company_city_area" class="form-control" id="input_company_city_area" disabled>
               </div>
             </div>
           </div>
@@ -476,6 +476,7 @@
     <script src="js/mplus_validate_person.js"></script>
     <script src="js/mplus_validate_vehicle.js"></script>
     <script src="js/mplus_validate_insurance.js"></script>
+    <script src="js/mplus_validate_company.js"></script>
 
   </body>
 </html>

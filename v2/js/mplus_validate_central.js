@@ -44,7 +44,7 @@ global_vehicle_vars = {
                       "vehicle_chassis":"FALSE"
                       }
 
-/*
+
 global_company_vars = {
                         "company_cnpj":"FALSE",
                         "company_name":"FALSE",
@@ -56,6 +56,7 @@ global_company_vars = {
                         "contact_mphone":"FALSE"
                       };
 
+/*
 global_insurance_vars = {
                           "",
                           "",

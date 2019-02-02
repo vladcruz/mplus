@@ -124,7 +124,7 @@ Validate E-Mail Address (Format Only)
 function validate_email(object_id)
 {
   var email;
-  
+
   email = document.getElementById(object_id).value;
 
   if(email.length < 3 || email.indexOf("@") == -1 || email.indexOf(".") == -1)
@@ -170,16 +170,16 @@ function validate_bdate(object_id)
     {
       days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     }
-    else 
+    else
     {
       days_in_month = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     }
-    
+
     // Checks if the day is within Month range
     if(bday > days_in_month[--bmonth])
     {
       document.getElementById(object_id).className = "form-control valid_nok";
-      global_person_vars.person_mphone = "FALSE";      
+      global_person_vars.person_mphone = "FALSE";
     }
     else
     {
@@ -236,7 +236,7 @@ function callback_cep(cep)
 }
 
 // Function to process the CEP address and fill out the form
-function validate_cep(object_id)
+function validate_person_cep(object_id)
 {
   var cep_id = document.getElementById(object_id).value;
 
