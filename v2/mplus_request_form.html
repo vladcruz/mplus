@@ -17,6 +17,11 @@
 
   <body>
     <div class="container">
+      <div class="header">
+        <img src="img/mplus.jpg" alt="MPlus Corretora">
+        <h2>Formul&aacute;rio de Solicita&ccedil;&atilde;o de Seguro</h2>
+      </div>
+      <br>
       <form name="insurance_request" action="." method="POST">
         <fieldset>
           <!-- ************************************************************************************************** -->
@@ -384,6 +389,12 @@
                 </select>
               </div>
             </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="input_person_comments" class="form-check-label">Coment&aacute;rios</label>
+                <textarea class="form-control" name="input_person_comments" id="input_person_comments" rows="6" maxlength="2048"></textarea>
+              </div>
+            </div>
           </div>
           <!-- ************************************************************************************************** -->
           <!--  Company Data ************************************************************************************ -->
@@ -462,6 +473,12 @@
               <div class="form-group col-md-4">
                 <label for="input_company_extension" class="form-check-label">Ramal</label>
                 <input type="text" name="input_company_extension" class="form-control" id="input_company_extension" size="10" maxlenght="10">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="input_company_comments" class="form-check-label">Coment&aacute;rios</label>
+                <textarea class="form-control" name="input_company_comments" id="input_company_comments" rows="6" maxlength="2048"></textarea>
               </div>
             </div>
           </div>
