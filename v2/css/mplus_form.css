@@ -50,28 +50,35 @@ Header class (needless to say more!)
 ***************************************************************************** */
 .header
 {
-  position: static;
-  top: 0px;
-  left: 0px;
+  position: relative;
+  display: table;
   width: 100%;
+  top: 10px;
+}
+
+.header_row
+{
+  display: table-row;
+}
+
+.header_cell_img
+{
+  display: table-cell;
+  border: none;
   height: 60px;
   line-height: 60px;
-  /* font-size: 12px; */
-  background-color: #FFFFFF;
-}
-
-.header img
-{
-  position: relative;
-  align: left;
-  height: 60px;
   width: auto;
+  float: left;
 }
 
-.header h2
+.header_cell_txt
 {
-  position: relative;
-  align: center;
+  display: table-cell;
+  border: none;
+  height: 60px;
+  line-height: 60px;
+  width: auto;
+  float: right;
 }
 
 /* *****************************************************************************
