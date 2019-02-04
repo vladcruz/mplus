@@ -113,7 +113,7 @@ Validate Company Name
 Validate CEP (Format and Existence)
 ************************************************************************** */
 // Callback Funtion to process response from JSON
-function callback_cep(cep)
+function callback_company_cep(cep)
 {
   if (!("erro" in cep))
   {
@@ -155,7 +155,7 @@ function validate_company_cep(object_id)
       var script = document.createElement('script');
 
       // Invokes the Query for CEP
-      script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=callback_cep';
+      script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=callback_company_cep';
 
       // Appends the results within the Page
       document.body.appendChild(script);

@@ -219,7 +219,7 @@ function validate_mphone(object_id)
 Validate CEP (Format and Existence)
 ************************************************************************** */
 // Callback Funtion to process response from JSON
-function callback_cep(cep)
+function callback_person_cep(cep)
 {
   if (!("erro" in cep))
   {
@@ -261,7 +261,7 @@ function validate_person_cep(object_id)
       var script = document.createElement('script');
 
       // Invokes the Query for CEP
-      script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=callback_cep';
+      script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=callback_person_cep';
 
       // Appends the results within the Page
       document.body.appendChild(script);
@@ -495,7 +495,7 @@ function validate_person_use_study(object_id_1, object_id_2)
 }
 
 /* **************************************************************************
-Enable GStudy Garage
+Enable Study Garage
 ************************************************************************** */
 function enable_person_use_study(object_id_1, object_id_2)
 {

@@ -85,22 +85,57 @@ function validate_vehicle_man_year(object_id_1, object_id_2)
 /* **************************************************************************
 Validate Model Year
 ************************************************************************** */
-function validate_vehicle_mod_year(object_id_1, object_id_2)
+function validate_vehicle_mod_year(object_id_1, object_id_2, object_3)
 {
   var vehicle_mod_year;
   var vehicle_man_year;
   var current_year;
 
-  vehicle_mod_year = document.getElementById(object_id_1).value;
-  vehicle_man_year = document.getElementById(object_id_2).value;
+  vehicle_man_year = document.getElementById(object_id_1).value;
+  vehicle_mod_year = document.getElementById(object_id_2).value;
   current_year = (new Date()).getFullYear();
 
   if(vehicle_mod_year > ++current_year || vehicle_mod_year < vehicle_man_year)
   {
-    document.getElementById(object_id_1).className = "form-control valid_nok";
+    document.getElementById(object_id_2).className = "form-control valid_nok";
   }
   else
   {
-    document.getElementById(object_id_1).className = "form-control valid_ok";
+    document.getElementById(object_id_2).className = "form-control valid_ok";
+    enable_vehicle_new(object_id_1, object_id_2, object_3);
+  }
+}
+
+/* **************************************************************************
+Enable New Car
+************************************************************************** */
+function enable_vehicle_new(object_1, object_2, object_3)
+{
+  var vehicle_man_year;
+  var vehicle_mod_year;
+  var vehicle_new;
+  var current_year;
+
+  vehicle_man_year = document.getElementById(object_1).value;
+  vehicle_mod_year = document.getElementById(object_2).value;
+  vehicle_new = document.getElementById(object_3);
+  current_year = (new Date()).getFullYear();
+
+  if(vehicle_man_year < current_year - 1 || vehicle_mod_year < vehicle_man_year)
+  {
+    vehicle_new.setAttribute("disabled", "disabled");
+    vehicle_new.selectedIndex = 0;
+  }
+  else
+  {
+    vehicle_new.removeAttribute("disabled");
+    if(current_year.value == "---")
+    {
+      document.getElementById(object_id_3).className = "form-control valid_nok";
+    }
+    else
+    {
+      document.getElementById(object_id_3).className = "form-control valid_ok";
+    }
   }
 }

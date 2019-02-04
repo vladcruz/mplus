@@ -299,14 +299,19 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="input_vehicle_manyear" class="form-check-label">Ano Fabrica&ccedil;&atilde;o </label>
-                <input type="text" name="input_vehicle_manyear" class="form-control" id="input_vehicle_manyear" data-mask="0000" onblur="validate_vehicle_man_year('input_vehicle_manyear','input_vehicle_modyear')">
-              </div>
-              <div class="form-group col-md-4">
-                <!-- Filler -->
+                <input type="text" name="input_vehicle_manyear" class="form-control" id="input_vehicle_manyear" data-mask="0000" onblur="validate_vehicle_man_year('input_vehicle_manyear','input_vehicle_modyear');">
               </div>
               <div class="form-group col-md-4">
                 <label for="input_vehicle_modyear" class="form-check-label">Ano Modelo </label>
-                <input type="text" name="input_vehicle_modyear" class="form-control" id="input_vehicle_modyear" data-mask="0000" onblur="validate_vehicle_mod_year('input_vehicle_modyear', 'input_vehicle_manyear')" disabled>
+                <input type="text" name="input_vehicle_modyear" class="form-control" id="input_vehicle_modyear" data-mask="0000" onblur="validate_vehicle_mod_year('input_vehicle_manyear','input_vehicle_modyear','input_vehicle_new');" disabled>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_vechile_new" class="form-check-label">Zero KM</label>
+                <select class="form-control" name="input_vehicle_new" id="input_vehicle_new" onblur="enable_vehicle_new('input_vehicle_manyear','input_vehicle_modyear','input_vehicle_new');" disabled>
+                  <option value="---">Selecione um</option>
+                  <option value="Sim">Sim</option>
+                  <option value="Nao">N&atilde;o</option>
+                </select>
               </div>
             </div>
             <br/>
@@ -329,16 +334,28 @@
                 <label for="input_insurance_company" class="form-check-label">Seguradora<span class="mandatory">*</span> </label>
                 <select class="form-control" name="input_insurance_company" id="input_insurance_company" disabled>
                   <option value="---">Selecione uma...</option>
-                  <option value="suhai">Suhai</option>
-                  <option value="youse">Youse</option>
-                  <option value="cardiff">Cardiff</option>
-                  <option value="caixa">Caixa</option>
-                  <option value="chubb">Chubb</option>
-                  <option value="liberty">Liberty</option>
-                  <option value="generali">Generali</option>
-                  <option value="porto_seguro">Porto Seguro</option>
-                  <option value="tokio_marine">Tokio Marine</option>
-                  <option value="bradesco">Bradesco</option>
+                  <option value="Allianz">Allianz</option>
+                  <option value="Azul">Azul</option>
+                  <option value="Bradesco">Bradesco</option>
+                  <option value="Brasil Veiculos">Brasil Ve&iacute;culos</option>
+                  <option value="HDI">HDI</option>
+                  <option value="Itau">Ita&uacute;</option>
+                  <option value="Liberty">Liberty</option>
+                  <option value="Mapfre">Mapfre</option>
+                  <option value="Porto Seguro">Porto Seguro</option>
+                  <option value="Sompo">Sompo</option>
+                  <option value="Suhai">Suhai</option>
+                  <option value="SulAmerica">SulAm&eacute;rica</option>
+                  <option value="Tokio">Tokio</option>
+                  <option value="Alfa">Alfa</option>
+                  <option value="Alirio">Alirio</option>
+                  <option value="Caixa">Caixa</option>
+                  <option value="Generalli">Generalli</option>
+                  <option value="Ituran">Ituran</option>
+                  <option value="Sancor">Sancor</option>
+                  <option value="Sura">Sura</option>
+                  <option value="Unimed">Unimed</option>
+                  <option value="Zurich">Zurich</option>
                 </select>
               </div>
               <div class="form-group col-md-3">
