@@ -62,8 +62,8 @@
                 <label for="input_person_sex" class="form-check-label">Sexo<span class="mandatory">*</span></label>
                 <select class="form-control" name="input_person_sex" id="input_person_sex" onblur="">
                   <option value="---">Selecione...</option>
-                  <option value="male">Masculino</option>
-                  <option value="female">Feminino</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Feminino">Feminino</option>
                 </select>
               </div>
               <div class="form-group col-md-4">
@@ -73,12 +73,12 @@
                 <label for="input_person_marital" class="form-check-label">Estado Civil<span class="mandatory">*</span></label>
                 <select class="form-control" name="input_person_marital" id="input_person_marital" onblur="">
                   <option value="---">Selecione...</option>
-                  <option value="single">Solteiro</option>
-                  <option value="married">Casado</option>
-                  <option value="divorced">Divorciado</option>
-                  <option value="widowed">Vi&uacute;vo</option>
-                  <option value="separated">Separado</option>
-                  <option value="stable_union">Uni&atilde;o Est&aacute;vel</option>
+                  <option value="Solteiro">Solteiro</option>
+                  <option value="Casado">Casado</option>
+                  <option value="Divorciado">Divorciado</option>
+                  <option value="Viuvo">Vi&uacute;vo</option>
+                  <option value="Separado">Separado</option>
+                  <option value="Uniao Estavel">Uni&atilde;o Est&aacute;vel</option>
                 </select>
               </div>
             </div>
@@ -142,25 +142,25 @@
                 <label for="input_person_home_type" class="form-check-label">Tipo de Resid&ecirc;ncia<span class="mandatory">*</span></label>
                 <select class="form-control" name="input_person_home_type" id="input_person_home_type" onchange="validate_home_type('input_person_home_type');">
                   <option value="---">Selecione um...</option>
-                  <option value="house">Casa</option>
-                  <option value="apartment">Apartamento</option>
-                  <option value="condo">Condom&iacute;nio</option>
+                  <option value="Casa">Casa</option>
+                  <option value="Apartamento">Apartamento</option>
+                  <option value="Condominio">Condom&iacute;nio</option>
                 </select>
               </div>
               <div class="form-group col-md-4">
                 <label for="input_person_home_garage" class="form-check-label">Possui Garagem na Resid&ecirc;ncia<span class="mandatory">*</span></label>
                 <select class="form-control" name="input_person_home_garage" id="input_person_home_garage" onchange="validate_home_garage('input_person_home_garage','input_person_home_garage_door');">
                     <option value="---">Selecione um...</option>
-                    <option value="yes">Sim</option>
-                    <option value="no">N&atilde;o</option>
+                    <option value="Sim">Sim</option>
+                    <option value="Nao">N&atilde;o</option>
                 </select>
               </div>
               <div class="form-group col-md-4">
                 <label for="input_person_home_garage_door" class="form-check-label">Tipo de Port&atilde;o<span class="mandatory">*</span></label>
                 <select class="form-control" name="input_person_home_garage_door" id="input_person_home_garage_door" onchange="validate_home_garage_door('input_person_home_garage_door');" disabled>
                     <option value="---">Selecione um...</option>
-                    <option value="electronic">Eletr&ocirc;nico</option>
-                    <option value="manual">Manual</option>
+                    <option value="Eletronico">Eletr&ocirc;nico</option>
+                    <option value="Manual">Manual</option>
                 </select>
               </div>
             </div>
@@ -180,19 +180,19 @@
                 <label for="input_person_other_drivers" class="form-check-label">Outros Condutores</span></label>
                 <select class="form-control" name="input_person_other_drivers" id="input_person_other_drivers" onchange="validate_person_other_drivers('input_person_other_drivers','input_person_other_drivers_age')">
                   <option value="---">Selecione um...</option>
-                  <option value="no residents">Não possui outros Residentes</option>
-                  <option value="male resident">Sim, do Sexo Masculino</option>
-                  <option value="female resident">Sim, do Sexo Feminino</option>
-                  <option value="male and female resident">Sim, de Ambos os Sexos</option>
+                  <option value="Sem Residentes">Não possui outros Residentes</option>
+                  <option value="Sim Masculino">Sim, do Sexo Masculino</option>
+                  <option value="Sim Feminino">Sim, do Sexo Feminino</option>
+                  <option value="Sim Ambos">Sim, de Ambos os Sexos</option>
                 </select>
               </div>
               <div class="form-group col-md-4">
                   <label for="input_person_other_drivers_age" class="form-check-label">Faixa Et&aacute;ria dos Condutores</span></label>
                   <select class="form-control" name="input_person_other_drivers_age" id="input_person_other_drivers_age" onchange="enable_person_other_drivers_age('input_person_other_drivers','input_person_other_drivers_age')" disabled>
                     <option value="---">Selecione um...</option>
-                    <option value="18 to 21">18 - 21 Anos</option>
-                    <option value="22 to 24">22 - 24 Anos</option>
-                    <option value="25+">25 ou mais</option>
+                    <option value="18 a 21">18 - 21 Anos</option>
+                    <option value="22 a 24">22 - 24 Anos</option>
+                    <option value="Mais de 25">25 ou mais</option>
                 </select>
               </div>
             </div>
@@ -201,26 +201,26 @@
                 <label for="input_person_use_vehicle_work" class="form-check-label">Utliza p/ Trabalho</span></label>
                 <select class="form-control" name="input_person_use_vehicle_work" id="input_person_use_vehicle_work" onchange="validate_person_use_work('input_person_use_vehicle_work','input_person_garage_work','input_person_distance_work')">
                   <option value="---">Selecione um...</option>
-                  <option value="yes">Sim</option>
-                  <option value="no">N&atilde;o</option>
+                  <option value="Sim">Sim</option>
+                  <option value="Nao">N&atilde;o</option>
                 </select>
               </div>
               <div class="form-group col-md-4">
                 <label for="input_person_garage_work" class="form-check-label">Possui Garagem no Trabalho</span></label>
                 <select class="form-control" name="input_person_garage_work" id="input_person_garage_work" onchange="enable_person_use_work('input_person_use_vehicle_work','input_person_garage_work','input_person_distance_work')" disabled>
                   <option value="---">Selecione um...</option>
-                  <option value="yes">Sim</option>
-                  <option value="no">N&atilde;o</option>
+                  <option value="Sim">Sim</option>
+                  <option value="Nao">N&atilde;o</option>
                 </select>
               </div>
               <div class="form-group col-md-4">
                 <label for="input_person_distance_work" class="form-check-label">Dist&acirc;ncia at&eacute; o Trabalho</span></label>
                 <select class="form-control" name="input_person_distance_work" id="input_person_distance_work" onchange="enable_person_use_work('input_person_use_vehicle_work','input_person_garage_work','input_person_distance_work')" disabled>
                   <option value="---">Selecione um...</option>
-                  <option value="-10">At&eacute; 10KM</option>
-                  <option value="-20">At&eacute; 20KM</option>
-                  <option value="-30">At&eacute; 30KM</option>
-                  <option value="+30">Acima 30KM</option>
+                  <option value="Ate 10KM">At&eacute; 10KM</option>
+                  <option value="Ate 20KM">At&eacute; 20KM</option>
+                  <option value="Ate 30KM">At&eacute; 30KM</option>
+                  <option value="Mais de 30KM">Acima 30KM</option>
                 </select>
               </div>
             </div>
@@ -229,8 +229,8 @@
                 <label for="input_person_use_vehicle_study" class="form-check-label">Utliza p/ Estudo</span></label>
                 <select class="form-control" name="input_person_use_vehicle_study" id="input_person_use_vehicle_study" onchange="validate_person_use_study('input_person_use_vehicle_study','input_person_use_vehicle_study_garage')">
                   <option value="---">Selecione um...</option>
-                  <option value="yes">Sim</option>
-                  <option value="no">N&atilde;o</option>
+                  <option value="Sim">Sim</option>
+                  <option value="Nao">N&atilde;o</option>
                 </select>
               </div>
               <div class="form-group col-md-4">
@@ -240,8 +240,8 @@
                 <label for="input_person_use_vehicle_study_garage" class="form-check-label">Possui Garagem na Escola</span></label>
                 <select class="form-control" name="input_person_use_vehicle_study_garage" id="input_person_use_vehicle_study_garage" onchange="enable_person_use_study('input_person_use_vehicle_study','input_person_use_vehicle_study_garage')" disabled>
                   <option value="---">Selecione um...</option>
-                  <option value="yes">Sim</option>
-                  <option value="no">N&atilde;o</option>
+                  <option value="Sim">Sim</option>
+                  <option value="Nao">N&atilde;o</option>
                 </select>
               </div>
             </div>
@@ -250,8 +250,8 @@
                 <label for="input_person_use_vehicle_professionaly" class="form-check-label">Usa Ve&iacute;culo Profissionalmente?</span></label>
                 <select class="form-control" name="input_person_use_vehicle_professionaly" id="input_person_use_vehicle_professionaly">
                   <option value="---">Selecione um...</option>
-                  <option value="yes">Sim</option>
-                  <option value="no">N&atilde;o</option>
+                  <option value="Sim">Sim</option>
+                  <option value="Nao">N&atilde;o</option>
                 </select>
               </div>
               <div class="form-group col-md-4">
@@ -261,15 +261,15 @@
                 <label for="input_person_use_vehicle_distance" class="form-check-label">M&eacute;dia de KMs Mensal</span></label>
                 <select class="form-control" name="input_person_use_vehicle_distance" id="input_person_use_vehicle_distance">
                   <option value="---">Selecione um...</option>
-                  <option value="-1500">At&eacute; 1500KM</option>
-                  <option value="-2000">At&eacute; 2000KM</option>
-                  <option value="-2500">At&eacute; 2500KM</option>
-                  <option value="-3000">At&eacute; 3000KM</option>
-                  <option value="-3500">At&eacute; 3500KM</option>
-                  <option value="-4000">At&eacute; 4000KM</option>
-                  <option value="-4500">At&eacute; 4500KM</option>
-                  <option value="-5000">At&eacute; 5000KM</option>
-                  <option value="+5000">Mais de 5000KM</option>
+                  <option value="Ate 1500KM">At&eacute; 1500KM</option>
+                  <option value="Ate 2000KM">At&eacute; 2000KM</option>
+                  <option value="Ate 2500KM">At&eacute; 2500KM</option>
+                  <option value="Ate 3000KM">At&eacute; 3000KM</option>
+                  <option value="Ate 3500KM">At&eacute; 3500KM</option>
+                  <option value="Ate 4000KM">At&eacute; 4000KM</option>
+                  <option value="Ate 4500KM">At&eacute; 4500KM</option>
+                  <option value="Ate 5000KM">At&eacute; 5000KM</option>
+                  <option value="Mais de 5000KM">Mais de 5000KM</option>
                 </select>
               </div>
             </div>
@@ -333,8 +333,8 @@
                 <label for="input_insurance_renovation" class="form-check-label">Renova&ccedil;&atilde;o<span class="mandatory">*</span></label>
                 <select class="form-control" name="input_insurance_renovation" id="input_insurance_renovation" onchange="validate_insurance_renewal('input_insurance_renovation','input_insurance_company','input_insurance_bonus_class','input_insurance_accident');">
                   <option value="---">Selecione um...</option>
-                  <option value="yes">Sim</option>
-                  <option value="no">N&atilde;o</option>
+                  <option value="Sim">Sim</option>
+                  <option value="Nao">N&atilde;o</option>
                 </select>
               </div>
               <div class="form-group col-md-3">
@@ -386,8 +386,8 @@
                 <label for="input_insurance_accident" class="form-check-label">Houve Sinistro<span class="mandatory">*</span> </label>
                 <select class="form-control" name="input_insurance_accident" id="input_insurance_accident" disabled>
                   <option value="---">Selecione um...</option>
-                  <option value="yes">Sim</option>
-                  <option value="no">N&atilde;o</option>
+                  <option value="Sim">Sim</option>
+                  <option value="Nao">N&atilde;o</option>
                 </select>
               </div>
             </div>
