@@ -23,7 +23,7 @@
           <h2 class="header_cell_txt"><b>Formul&aacute;rio de Solicita&ccedil;&atilde;o de Seguro</b></h2>
         </div>
       </div>
-      <br>
+      <hr>
       <form name="insurance_request" action="." method="POST">
         <fieldset>
           <!-- ************************************************************************************************** -->
@@ -475,6 +475,27 @@
               <div class="form-group col-md-4">
                 <label for="input_company_extension" class="form-check-label">Ramal</label>
                 <input type="text" name="input_company_extension" class="form-control" id="input_company_extension" size="10" maxlenght="10">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <!-- Filler -->
+              </div>
+              <div class="form-group col-md-4">
+                <label for="input_company_insurance_type" class="form-check-label">Tipo de Seguro Desejado</label>
+                <select class="form-control" name="input_company_insurance_type" id="input_company_insurance_type" multiple>
+                  <option value="Frota Automovel">Frota Autom&oacute;vel</option>
+                  <option value="Empresarial">Empresarial</option>
+                  <option value="Vida em Grupo">Vida em Grupo</option>
+                  <option value="Plano de Saude">Plano de Sa&uacute;de</option>
+                  <option value="Condominio">Condom&iacute;nio</option>
+                  <option value="Responsabilidade Civil">Responsabilidade Civil</option>
+                  <option value="Fianca Locaticia PJ">Fian&ccedil;a Locat&iacute;cia PJ</option>
+                  <option value="Garantias Contratuais">Garantias Contratuais</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <!-- Filler -->
               </div>
             </div>
             <div class="form-row">
