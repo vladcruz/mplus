@@ -40,6 +40,17 @@ May not be the best solution... but that sure works!
 /* *****************************************************************************
 <span> to set the important mark red
 ***************************************************************************** */
+.centered
+{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* *****************************************************************************
+<span> to set the important mark red
+***************************************************************************** */
 .mandatory
 {
   color: #FF0000;
@@ -79,6 +90,29 @@ Header class (needless to say more!)
   line-height: 60px;
   width: auto;
   float: right;
+}
+
+/* *****************************************************************************
+Table Class for positioning CheckBoxes
+***************************************************************************** */
+.table_check
+{
+  position: relative;
+  display: table;
+  width: 100%;
+}
+
+.table_check_row
+{
+  display: table-row;
+}
+
+.table_check_cell
+{
+  display: table-cell;
+  border: none;
+  line-height: auto;
+  width: 33%;
 }
 
 /* *****************************************************************************

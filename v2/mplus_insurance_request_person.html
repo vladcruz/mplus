@@ -27,25 +27,9 @@
       <form name="insurance_request" action="." method="POST">
         <fieldset>
           <!-- ************************************************************************************************** -->
-          <!-- Person or Company ******************************************************************************** -->
-          <!-- ************************************************************************************************** -->
-          <div id="div_requestor_type">
-            <legend><b>Eu sou...</b></legend>
-            <div class="form-row">
-              <div class="form-group col-md-2">
-                  <input type="radio" value="Pessoa Fisica" name="input_person_type" id="input_person_type" onclick="display_div('div_person_data', 'show');display_div('div_vehicle_data', 'show');display_div('div_insurance_data', 'show');display_div('div_company_data', 'hide');display_div('div_contact_data', 'hide');display_div('div_submit_button', 'show');">
-                  <label for="input_person_type" class="radio-inline">Pessoa F&iacute;sica</label>
-              </div>
-              <div class="form-group col-md-2">
-                  <input type="radio" value="Pessoa Juridica" name="input_person_type" id="input_person_type" onclick="display_div('div_company_data', 'show');display_div('div_contact_data', 'show');display_div('div_person_data', 'hide');display_div('div_vehicle_data', 'hide');display_div('div_insurance_data', 'hide');display_div('div_submit_button', 'show');">
-                  <label for="input_person_type" class="radio-inline">Pessoa Jur&iacute;dica</label>
-              </div>
-            </div>
-          </div>
-          <!-- ************************************************************************************************** -->
           <!-- Person Data ************************************************************************************** -->
           <!-- ************************************************************************************************** -->
-          <div id="div_person_data" class="div_visibility_hide">
+          <div id="div_person_data">
             <legend><b>Meus Dados...</b></legend>
             <div class="form-row">
               <div class="form-group col-md-4">
@@ -277,7 +261,7 @@
           <!-- ************************************************************************************************** -->
           <!-- Vehicle Data ************************************************************************************* -->
           <!-- ************************************************************************************************** -->
-          <div id="div_vehicle_data" class="div_visibility_hide">
+          <div id="div_vehicle_data">
             <legend><b>Dados do Ve&iacute;culo... </b></legend><br/>
             <div class="form-row">
               <div class="form-group col-md-2">
@@ -326,7 +310,7 @@
           <!-- ************************************************************************************************** -->
           <!-- Insurance Data *********************************************************************************** -->
           <!-- ************************************************************************************************** -->
-          <div id="div_insurance_data" class="div_visibility_hide">
+          <div id="div_insurance_data">
             <legend><b>Dados do Seguro... </b></legend><br/>
             <div class="form-row">
               <div class="form-group col-md-3">
@@ -395,111 +379,6 @@
               <div class="form-group col-md-12">
                 <label for="input_person_comments" class="form-check-label">Coment&aacute;rios</label>
                 <textarea class="form-control" name="input_person_comments" id="input_person_comments" rows="6" maxlength="2048"></textarea>
-              </div>
-            </div>
-          </div>
-          <!-- ************************************************************************************************** -->
-          <!--  Company Data ************************************************************************************ -->
-          <!-- ************************************************************************************************** -->
-          <div id="div_company_data" class="div_visibility_hide">
-            <legend><b>Dados da Empresa... </b></legend><br/>
-            <div class="form-row">
-              <div class="form-group col-md-4">
-                <label for="input_company_cnpj" class="form-check-label">CNPJ<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_cnpj" class="form-control" id="input_company_cnpj" data-mask="00.000.000/0000-00" placeholder="12.345.567/0000-00" onblur="validate_cnpj('input_company_cnpj');">
-              </div>
-              <div class="form-group col-md-8">
-                <label for="input_company_name" class="form-check-label">Nome da Empresa<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_name" class="form-control" id="input_company_name" maxlenght="64">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-2">
-                <label for="input_company_cep" class="form-check-label">CEP<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_cep" class="form-control" id="input_company_cep" data-mask="00000-000" placeholder="12345-678" onchange="validate_company_cep('input_company_cep');">
-              </div>
-              <div class="form-group col-md-6">
-                <label for="input_company_street" class="form-check-label">Logradouro<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_street" class="form-control" id="input_company_street" maxlenght="32" disabled>
-              </div>
-              <div class="form-group col-md-2">
-                <label for="input_company_street_number" class="form-check-label">N&uacute;mero<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_street_number" class="form-control" id="input_company_street_number" maxlenght="5">
-              </div>
-              <div class="form-group col-md-2">
-                <label for="input_company_street_comp" class="form-check-label">Compl.<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_street_comp" class="form-control" id="input_company_street_comp" maxlenght="5">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-2">
-                <label for="input_company_state" class="form-check-label">Estado<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_state" class="form-control" id="input_company_state" disabled>
-              </div>
-              <div class="form-group col-md-6">
-                <label for="input_company_city" class="form-check-label">Cidade<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_city" class="form-control" id="input_company_city" disabled>
-              </div>
-              <div class="form-group col-md-4">
-                <label for="input_company_city_area" class="form-check-label">Bairro<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_city_area" class="form-control" id="input_company_city_area" disabled>
-              </div>
-            </div>
-          </div>
-          <!-- ************************************************************************************************** -->
-          <!--  Contact Data ************************************************************************************ -->
-          <!-- ************************************************************************************************** -->
-          <div id="div_contact_data" class="div_visibility_hide">
-            <legend><b>Dados do Contato... </b></legend><br/>
-            <div class="form-row">
-              <div class="form-group col-md-8">
-                <label for="input_company_cname" class="form-check-label">Primeiro Nome<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_cname" class="form-control" id="input_company_cname" maxlenght="24">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="input_company_cemail" class="form-check-label">E-Mail<span class="mandatory">*</span></label>
-                <input type="email" name="input_company_cemail" class="form-control" id="input_company_cemail" size="32" maxlenght="32">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-4">
-                <label for="input_company_mphone" class="form-check-label">Telefone Celular<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_mphone" class="form-control" id="input_company_mphone" size="10" maxlenght="10">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="input_company_fphone" class="form-check-label">Telefone Fixo</label>
-                <input type="text" name="input_company_fphone" class="form-control" id="input_company_fphone" size="10" maxlenght="10">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="input_company_extension" class="form-check-label">Ramal</label>
-                <input type="text" name="input_company_extension" class="form-control" id="input_company_extension" size="10" maxlenght="10">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-4">
-                <!-- Filler -->
-              </div>
-              <div class="form-group col-md-4">
-                <label for="input_company_insurance_type" class="form-check-label">Tipo de Seguro Desejado</label>
-                <select class="form-control" name="input_company_insurance_type" id="input_company_insurance_type" multiple>
-                  <option value="Frota Automovel">Frota Autom&oacute;vel</option>
-                  <option value="Empresarial">Empresarial</option>
-                  <option value="Vida em Grupo">Vida em Grupo</option>
-                  <option value="Plano de Saude">Plano de Sa&uacute;de</option>
-                  <option value="Condominio">Condom&iacute;nio</option>
-                  <option value="Responsabilidade Civil">Responsabilidade Civil</option>
-                  <option value="Fianca Locaticia PJ">Fian&ccedil;a Locat&iacute;cia PJ</option>
-                  <option value="Garantias Contratuais">Garantias Contratuais</option>
-                </select>
-              </div>
-              <div class="form-group col-md-4">
-                <!-- Filler -->
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-12">
-                <label for="input_company_comments" class="form-check-label">Coment&aacute;rios</label>
-                <textarea class="form-control" name="input_company_comments" id="input_company_comments" rows="6" maxlength="2048"></textarea>
               </div>
             </div>
           </div>

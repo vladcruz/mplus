@@ -28,6 +28,8 @@ var global_company_vars;
 global_person_vars = {
                         "person_cpf":"FALSE",
                         "person_name":"FALSE",
+                        "person_sex":"FALSE",
+                        "person_marital":"FALSE",
                         "person_email":"FALSE",
                         "person_bdate":"FALSE",
                         "person_mphone":"FALSE",
@@ -35,7 +37,17 @@ global_person_vars = {
                         "person_street_number":"FALSE",
                         "person_home_type":"FALSE",
                         "person_home_garage":"FALSE",
-                        "person_home_garage_door":"FALSE"
+                        "person_home_garage_door":"FALSE",
+                        "person_owned_vehicles":"FALSE",
+                        "person_other_drivers":"FALSE",
+                        "person_other_drivers_age":"FALSE",
+                        "person_use_vehicle_work":"FALSE",
+                        "person_garage_work":"FALSE",
+                        "person_distance_work":"FALSE",
+                        "person_use_vehicle_study":"FALSE",
+                        "person_use_vehicle_study_garage":"FALSE",
+                        "person_use_vehicle_professionaly":"FALSE",
+                        "person_use_vehicle_distance":"FALSE"
                       }
 
 
@@ -77,6 +89,8 @@ function validate_central()
   var error_msg;
 
   error_msg = "";
+
+  alert(document.getElementById("input_person_type").value);
 
   if(document.getElementById("input_person_type").checked)
   {
