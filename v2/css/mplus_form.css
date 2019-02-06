@@ -24,6 +24,44 @@ body
 }
 
 /* *****************************************************************************
+Changing Placeholder colors to be lighter
+***************************************************************************** */
+::-webkit-input-placeholder /* WebKit, Blink, Edge */
+{
+    color: #000273!important;
+    opacity: 0.5!important;
+}
+
+:-moz-placeholder /* Mozilla Firefox 4 to 18 */
+{
+   color: #000273!important;
+   opacity: 0.5!important;
+}
+
+::-moz-placeholder /* Mozilla Firefox 19+ */
+{
+   color: #000273!important;
+   opacity: 1!important;
+}
+
+:-ms-input-placeholder /* Internet Explorer 10-11 */
+{
+   color: #000273!important;
+   opacity: 0.5!important;
+}
+::-ms-input-placeholder /* Microsoft Edge */
+{
+   color: #000273!important;
+   opacity: 0.5!important;
+}
+
+::placeholder /* Most modern browsers support this now. */
+{
+   color: #000273!important;
+   opacity: 0.5!important;
+}
+
+/* *****************************************************************************
 <div> visibility control classes
 May not be the best solution... but that sure works!
  ***************************************************************************** */
@@ -100,6 +138,7 @@ Table Class for positioning CheckBoxes
   position: relative;
   display: table;
   width: 100%;
+  text-align: center;
 }
 
 .table_check_row
@@ -113,6 +152,7 @@ Table Class for positioning CheckBoxes
   border: none;
   line-height: auto;
   width: 33%;
+  text-align: left;
 }
 
 /* *****************************************************************************

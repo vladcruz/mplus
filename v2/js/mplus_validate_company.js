@@ -18,7 +18,7 @@ Validation Functions
 /* **************************************************************************
 Validate the CNPJ Number
 ************************************************************************** */
-function validate_cnpj(object_id)
+function validate_company_cnpj(object_id)
 {
   var cnpj;
   var cnpj_invalid_list;
@@ -38,7 +38,7 @@ function validate_cnpj(object_id)
   if(cnpj.length != 14 || cnpj_invalid_list.indexOf(cnpj) != -1)
   {
     document.getElementById(object_id).className = "form-control valid_nok";
-    global_copmany_vars.company_cnpj = "FALSE";
+    global_company_vars.company_cnpj = "FALSE";
   }
   //if the cnpj is "valid" then we check the formula
   else
@@ -108,6 +108,24 @@ function validate_cnpj(object_id)
 /* **************************************************************************
 Validate Company Name
 ************************************************************************** */
+function validate_company_name(object_id)
+{
+  var company_name;
+
+  company_name = document.getElementById(object_id).value;
+
+  // Checks the Name Length and if there are two names
+  if(company_name.length < 3)
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    global_company_vars.company_name = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    global_company_vars.company_name = "TRUE";
+  }
+}
 
 /* **************************************************************************
 Validate CEP (Format and Existence)
@@ -171,5 +189,124 @@ function validate_company_cep(object_id)
   else // If field empty
   {
     alert("CEP não encontrado!");
+  }
+}
+
+/* **************************************************************************
+Validate Street Number (Format and Existence)
+************************************************************************** */
+function validate_company_street_number(object_id)
+{
+  var street_number;
+
+  street_number = document.getElementById(object_id).value;
+
+  if(street_number.length < 1)
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    global_company_vars.company_street_number = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    global_company_vars.company_street_number = "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Contact Name (Format and Existence)
+************************************************************************** */
+function validate_company_contact_name(object_id)
+{
+  var contact_name;
+  var splitted;
+
+  contact_name = document.getElementById(object_id).value;
+  splitted = contact_name.split(" ");
+
+  // Checks the Name Length and if there are two names
+  if(contact_name.indexOf(" ") == -1 || splitted.length < 2)
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    global_company_vars.contact_name = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    global_company_vars.contact_name = "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Contact E-Mail Address (Format Only)
+************************************************************************** */
+function validate_company_contact_email(object_id)
+{
+  var contact_email;
+
+  contact_email = document.getElementById(object_id).value;
+
+  if(contact_email.length < 3 || contact_email.indexOf("@") == -1 || contact_email.indexOf(".") == -1)
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    global_company_vars.contact_email = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    global_company_vars.contact_email = "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Mobile Phone
+************************************************************************** */
+function validate_company_contact_mphone(object_id)
+{
+  var contact_mphone;
+
+  contact_mphone = document.getElementById(object_id).value;
+
+  if(contact_mphone.length < 14)
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    global_company_vars.contact_mphone = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    global_company_vars.contact_mphone = "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Insurance Type
+************************************************************************** */
+function validate_company_insurance_type(object_id)
+{
+  var insurance_type;
+  var count;
+
+  insurance_type = document.getElementById(object_id);
+
+  count = 0;
+
+  for(i = 0; i < insurance_type.length; i++)
+  {
+    if(insurance_type[i].checked)
+    {
+      count = count + 1;
+    }
+  }
+
+  if(count == 0)
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    global_company_vars.company_insurance_type = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    global_company_vars.company_insurance_type = "TRUE";
   }
 }
