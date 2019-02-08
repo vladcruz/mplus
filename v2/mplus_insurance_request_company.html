@@ -24,7 +24,7 @@
         </div>
       </div>
       <hr>
-      <form name="insurance_request" action="." method="POST">
+      <form name="company_insurance_request" action="." method="POST">
         <fieldset>
           <!-- ************************************************************************************************** -->
           <!--  Company Data ************************************************************************************ -->
@@ -38,13 +38,13 @@
               </div>
               <div class="form-group col-md-8">
                 <label for="input_company_name" class="form-check-label">Nome da Empresa<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_name" class="form-control" id="input_company_name" maxlenght="64" onblur="validate_company_name('input_company_name');">
+                <input type="text" name="input_company_name" class="form-control" id="input_company_name" maxlenght="64" onblur="validate_company_name('input_company_name');")>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-2">
                 <label for="input_company_cep" class="form-check-label">CEP<span class="mandatory">*</span></label>
-                <input type="text" name="input_company_cep" class="form-control" id="input_company_cep" data-mask="00000-000" placeholder="12345-678" onchange="validate_company_cep('input_company_cep');">
+                <input type="text" name="input_company_cep" class="form-control" id="input_company_cep" data-mask="00000-000" placeholder="12345-678" onblur="validate_company_cep('input_company_cep');">
               </div>
               <div class="form-group col-md-6">
                 <label for="input_company_street" class="form-check-label">Logradouro<span class="mandatory">*</span></label>
@@ -107,18 +107,18 @@
               <legend><b>Tipo de Seguro...<span class="mandatory">*</span></b></legend>
               <div class="form-group col-md-12 table_check">
                 <div class="table_check_row">
-                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Frota Automovel"> Frota Autom&oacute;vel</label>
-                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Empresarial">Empresarial</label>
-                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Vida em Grupo">Vida em Grupo</label>
+                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Frota Automovel">  Frota Autom&oacute;vel</label>
+                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Empresarial">  Empresarial</label>
+                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Vida em Grupo">  Vida em Grupo</label>
                 </div>
                 <div class="table_check_row">
-                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Plano de Saude">Plano de Sa&uacute;de</label>
-                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Condominio">Condom&iacute;nio</label>
-                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Responsabilidade Civil">Responsabilidade Civil</label>
+                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Plano de Saude">  Plano de Sa&uacute;de</label>
+                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Condominio">  Condom&iacute;nio</label>
+                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Responsabilidade Civil">  Responsabilidade Civil</label>
                 </div>
                 <div class="table_check_row">
-                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Fianca Locaticia PJ">Fian&ccedil;a Locat&iacute;cia PJ</label>
-                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Garantias Contratuais">Garantias Contratuais</label>
+                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Fianca Locaticia PJ">  Fian&ccedil;a Locat&iacute;cia PJ</label>
+                  <label class="checkbox-inline table_check_cell"><input type="checkbox" name="input_company_insurance_type" id="input_company_insurance_type" value="Garantias Contratuais">  Garantias Contratuais</label>
                 </div>
               </div>
             </div>
@@ -131,7 +131,7 @@
           </div>
         </fieldset>
         <div id="div_submit_button" >
-          <button type="button" class="btn btn-warning" onclick="validate_company_submit();">Enviar</button>
+          <button type="button" class="btn btn-warning" onclick="validate_company_insurance_type('input_company_insurance_type'); validate_company_submit();">Enviar</button>
         </div>
         <div id="div_error_msg"></div>
       </form>
@@ -153,8 +153,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="js/mplus_ux.js"></script>
-    <script src="js/mplus_validate_company_submit.js"></script>
     <script src="js/mplus_validate_company.js"></script>
-
   </body>
 </html>

@@ -12,6 +12,27 @@ Date          | Author                | Description
 ***************************************************************************** */
 
 /* *****************************************************************************
+Variable
+***************************************************************************** */
+// Declaration
+var validation_company_vars;
+var insurance_type_list;
+
+// Initialization
+validation_company_vars = {
+  "company_cnpj":"FALSE",
+  "company_name":"FALSE",
+  "company_cep":"FALSE",
+  "company_street_number":"FALSE",
+  "company_contact_name":"FALSE",
+  "company_contact_email":"FALSE",
+  "company_contact_mphone":"FALSE",
+  "company_insurance_type":"FALSE"
+};
+
+insurance_type_list = "";
+
+/* *****************************************************************************
 Validation Functions
 ***************************************************************************** */
 
@@ -38,7 +59,7 @@ function validate_company_cnpj(object_id)
   if(cnpj.length != 14 || cnpj_invalid_list.indexOf(cnpj) != -1)
   {
     document.getElementById(object_id).className = "form-control valid_nok";
-    global_company_vars.company_cnpj = "FALSE";
+    validation_company_vars.company_cnpj = "FALSE";
   }
   //if the cnpj is "valid" then we check the formula
   else
@@ -76,7 +97,7 @@ function validate_company_cnpj(object_id)
     else
     {
       document.getElementById(object_id).className = "form-control valid_nok";
-      global_copmany_vars.company_cnpj = "FALSE";
+      validation_company_vars.company_cnpj = "FALSE";
     }
 
     cnpj_sum = 0;
@@ -95,12 +116,12 @@ function validate_company_cnpj(object_id)
     if(11 - (cnpj_sum % 11) == cnpj_second_digit)
     {
       document.getElementById(object_id).className = "form-control valid_ok";
-      global_copmany_vars.company_cnpj = "TRUE";
+      validation_company_vars.company_cnpj = "TRUE";
     }
     else
     {
       document.getElementById(object_id).className = "form-control valid_nok";
-      global_copmany_vars.company_cnpj = "FALSE";
+      validation_company_vars.company_cnpj = "FALSE";
     }
   }
 }
@@ -118,12 +139,12 @@ function validate_company_name(object_id)
   if(company_name.length < 3)
   {
     document.getElementById(object_id).className = "form-control valid_nok";
-    global_company_vars.company_name = "FALSE";
+    validation_company_vars.company_name = "FALSE";
   }
   else
   {
     document.getElementById(object_id).className = "form-control valid_ok";
-    global_company_vars.company_name = "TRUE";
+    validation_company_vars.company_name = "TRUE";
   }
 }
 
@@ -143,7 +164,9 @@ function callback_company_cep(cep)
   }
   else
   {
-    alert("CEP não encontrado.");
+    alert("CEP não encontrado!");
+    document.getElementById("input_company_cep").className = "form-control valid_nok";
+    validation_company_vars.company_cep = "FALSE";
   }
 }
 
@@ -177,18 +200,22 @@ function validate_company_cep(object_id)
 
       // Appends the results within the Page
       document.body.appendChild(script);
+      document.getElementById(object_id).className = "form-control valid_ok";
+      validation_company_vars.company_cep = "TRUE";
     }
     else
     {
       // Malformed CEP
-      alert("CEP Inválido!");
+      alert("CEP não encontrado!");
       document.getElementById(object_id).className = "form-control valid_nok";
-      global_company_vars.company_cep = "FALSE";
+      validation_company_vars.company_cep = "FALSE";
     }
   }
   else // If field empty
   {
     alert("CEP não encontrado!");
+    document.getElementById(object_id).className = "form-control valid_nok";
+    validation_company_vars.company_cep = "FALSE";
   }
 }
 
@@ -204,12 +231,12 @@ function validate_company_street_number(object_id)
   if(street_number.length < 1)
   {
     document.getElementById(object_id).className = "form-control valid_nok";
-    global_company_vars.company_street_number = "FALSE";
+    validation_company_vars.company_street_number = "FALSE";
   }
   else
   {
     document.getElementById(object_id).className = "form-control valid_ok";
-    global_company_vars.company_street_number = "TRUE";
+    validation_company_vars.company_street_number = "TRUE";
   }
 }
 
@@ -228,12 +255,12 @@ function validate_company_contact_name(object_id)
   if(contact_name.indexOf(" ") == -1 || splitted.length < 2)
   {
     document.getElementById(object_id).className = "form-control valid_nok";
-    global_company_vars.contact_name = "FALSE";
+    validation_company_vars.company_contact_name = "FALSE";
   }
   else
   {
     document.getElementById(object_id).className = "form-control valid_ok";
-    global_company_vars.contact_name = "TRUE";
+    validation_company_vars.company_contact_name = "TRUE";
   }
 }
 
@@ -249,12 +276,12 @@ function validate_company_contact_email(object_id)
   if(contact_email.length < 3 || contact_email.indexOf("@") == -1 || contact_email.indexOf(".") == -1)
   {
     document.getElementById(object_id).className = "form-control valid_nok";
-    global_company_vars.contact_email = "FALSE";
+    validation_company_vars.company_contact_email = "FALSE";
   }
   else
   {
     document.getElementById(object_id).className = "form-control valid_ok";
-    global_company_vars.contact_email = "TRUE";
+    validation_company_vars.company_contact_email = "TRUE";
   }
 }
 
@@ -270,12 +297,12 @@ function validate_company_contact_mphone(object_id)
   if(contact_mphone.length < 14)
   {
     document.getElementById(object_id).className = "form-control valid_nok";
-    global_company_vars.contact_mphone = "FALSE";
+    validation_company_vars.company_contact_mphone = "FALSE";
   }
   else
   {
     document.getElementById(object_id).className = "form-control valid_ok";
-    global_company_vars.contact_mphone = "TRUE";
+    validation_company_vars.company_contact_mphone = "TRUE";
   }
 }
 
@@ -287,26 +314,153 @@ function validate_company_insurance_type(object_id)
   var insurance_type;
   var count;
 
-  insurance_type = document.getElementById(object_id);
-
+  insurance_type = document.getElementsByName(object_id);
   count = 0;
 
   for(i = 0; i < insurance_type.length; i++)
   {
     if(insurance_type[i].checked)
     {
+      insurance_type_list = insurance_type_list + insurance_type[i].value + ";";
       count = count + 1;
     }
   }
 
-  if(count == 0)
+  if(count == 0) // If nothing was marked
   {
-    document.getElementById(object_id).className = "form-control valid_nok";
-    global_company_vars.company_insurance_type = "FALSE";
+    validation_company_vars.company_insurance_type = "FALSE";
   }
   else
   {
-    document.getElementById(object_id).className = "form-control valid_ok";
-    global_company_vars.company_insurance_type = "TRUE";
+    validation_company_vars.company_insurance_type = "TRUE";
+  }
+}
+
+/* **************************************************************************
+Final Validation Function
+************************************************************************** */
+// Central Validation Function
+function validate_company_submit()
+{
+  var validation_counter;
+  var validation_string;
+  var error_msg;
+
+  validation_counter = 0;
+  validation_string = "";
+  error_msg = "";
+
+  document.getElementById("div_error_msg").innerHTML = "";
+
+  // Validate CNPJ - Mandatory Field
+  if(validation_company_vars.company_cnpj == "TRUE")
+  {
+    validation_counter = validation_counter + 1;
+    validation_string = validation_string + "('" + document.getElementById("input_company_cnpj").value + "', ";
+  }
+  else
+  {
+    document.getElementById("input_company_cnpj").className = "form-control valid_nok";
+    error_msg = error_msg + "CNPJ Inv&aacute;lido ou Vazio!<br>";
+  }
+
+  // Validate Company Name - Mandatory field
+  if(validation_company_vars.company_name == "TRUE")
+  {
+    validation_counter = validation_counter + 1;
+    validation_string = validation_string + "'" + document.getElementById("input_company_name").value + "', ";
+  }
+  else
+  {
+    document.getElementById("input_company_name").className = "form-control valid_nok";
+    error_msg = error_msg + "Nome de Empresa Inv&aacute;lido ou Vazio!<br>";
+  }
+
+  // Validate Company CEP - Mandatory Field
+  if(validation_company_vars.company_cep == "TRUE")
+  {
+    validation_counter = validation_counter + 1;
+    validation_string = validation_string + "'" + document.getElementById("input_company_cep").value + "', '"
+                        + document.getElementById("input_company_street").value + "', '"
+                        + document.getElementById("input_company_street_comp").value + "', '"
+                        + document.getElementById("input_company_state").value + "', '"
+                        + document.getElementById("input_company_city").value + "', '"
+                        + document.getElementById("input_company_city_area").value + "', ";
+  }
+  else
+  {
+    document.getElementById("input_company_cep").className = "form-control valid_nok";
+    error_msg = error_msg + "CEP Inv&aacute;lido ou Vazio!<br>";
+  }
+
+  // Validate Street Number - Mandatory Field
+  if(validation_company_vars.company_street_number == "TRUE")
+  {
+    validation_counter = validation_counter + 1;
+    validation_string = validation_string + "'" + document.getElementById("input_company_street_number") + "', ";
+  }
+  else
+  {
+    document.getElementById("input_company_street_number").className = "form-control valid_nok";
+    error_msg = error_msg + "N&uacute;mero do Endere&ccedil;o Inv&aacute;lido ou Vazio!<br>";
+  }
+
+  // Validate Company's Contact Name
+  if(validation_company_vars.company_contact_name == "TRUE")
+  {
+    validation_counter = validation_counter + 1;
+    validation_string = validation_string + "'" + document.getElementById("input_company_cname").value + "', ";
+  }
+  else
+  {
+    document.getElementById("input_company_cname").className = "form-control valid_nok";
+    error_msg = error_msg + "Nome de Contato Inv&aacute;lido ou Vazio!<br>";
+  }
+
+  // Validate Company's Contact E-Mail
+  if(validation_company_vars.company_contact_email == "TRUE")
+  {
+    validation_counter = validation_counter + 1;
+    validation_string = validation_string + "'" + document.getElementById("input_company_cemail").value + "', ";
+  }
+  else
+  {
+    document.getElementById("input_company_cemail").className = "form-control valid_nok";
+    error_msg = error_msg + "E-Mail do Contato Inv&aacute;lido ou Vazio!<br>";
+  }
+
+  // Validate Company's Contact Mobile Phone
+  if(validation_company_vars.company_contact_mphone == "TRUE")
+  {
+    validation_counter = validation_counter + 1;
+    validation_string = validation_string + "'" + document.getElementById("input_company_mphone").value + "', '"
+                        + document.getElementById("input_company_fphone").value + "', '"
+                        + document.getElementById("input_company_extension").value + "', ";
+  }
+  else
+  {
+    document.getElementById("input_company_mphone").className = "form-control valid_nok";
+    error_msg = error_msg + "Celular do Contato Inv&aacute;lido ou Vazio!<br>";
+  }
+
+  // Validate Insurance Type
+  if(validation_company_vars.company_insurance_type == "TRUE")
+  {
+    validation_counter = validation_counter + 1;
+    validation_string = validation_string + "'" + insurance_type_list + "', ";
+  }
+  else
+  {
+    error_msg = error_msg + "Selecione ao menos um Tipo de Seguro!<br>";
+  }
+
+  if(validation_counter != 8)
+  {
+    document.getElementById("div_error_msg").innerHTML = error_msg;
+  }
+  else
+  {
+    validation_string = validation_string + "'" + document.getElementById("input_company_comments").value + "')";
+    alert(validation_string);
   }
 }
