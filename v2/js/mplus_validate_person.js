@@ -12,6 +12,43 @@ Date          | Author                | Description
 ***************************************************************************** */
 
 /* *****************************************************************************
+Variables
+***************************************************************************** */
+// Declaration
+var validation_person_vars;
+
+// Initialization
+validation_person_vars = {
+  "person_cpf":"FALSE",
+  "person_name":"FALSE",
+  "person_sex":"FALSE",
+  "person_marital":"FALSE",
+  "person_email":"FALSE",
+  "person_bdate":"FALSE",
+  "person_mphone":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE",
+  "":"FALSE"
+};
+
+/* *****************************************************************************
 Validation Functions
 ***************************************************************************** */
 
@@ -40,7 +77,7 @@ function validate_cpf(object_id)
   if (cpf.length != 11 || (cpf_invalid_list.indexOf(cpf) != -1))
   {
       document.getElementById(object_id).className = "form-control valid_nok";
-      global_person_vars.person_cpf = "FALSE";
+      validation_person_vars.person_cpf = "FALSE";
   }
   else
   {
@@ -60,12 +97,12 @@ function validate_cpf(object_id)
     if (cpf_leftover != parseInt(cpf.substring(9, 10)) )
     {
       document.getElementById(object_id).className = "form-control valid_nok";
-      global_person_vars.person_cpf = "FALSE";
+      validation_person_vars.person_cpf = "FALSE";
     }
     else
     {
       document.getElementById(object_id).className = "form-control valid_ok";
-      global_person_vars.person_cpf = "TRUE";
+      validation_person_vars.person_cpf = "TRUE";
     }
 
     // Verify that the second CPF Digit is Valid
@@ -84,12 +121,12 @@ function validate_cpf(object_id)
     if (cpf_leftover != parseInt(cpf.substring(10, 11) ) )
     {
       document.getElementById(object_id).className = "form-control valid_nok";
-      global_person_vars.person_cpf = "FALSE";
+      validation_person_vars.person_cpf = "FALSE";
     }
     else
     {
       document.getElementById(object_id).className = "form-control valid_ok";
-      global_person_vars.person_cpf = "TRUE";
+      validation_person_vars.person_cpf = "TRUE";
     }
   }
 }
@@ -109,12 +146,54 @@ function validate_name(object_id)
   if(name.indexOf(" ") == -1 || splitted.length < 2)
   {
     document.getElementById(object_id).className = "form-control valid_nok";
-    global_person_vars.person_name = "FALSE";
+    validation_person_vars.person_name = "FALSE";
   }
   else
   {
     document.getElementById(object_id).className = "form-control valid_ok";
-    global_person_vars.person_name = "TRUE";
+    validation_person_vars.person_name = "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Sex
+************************************************************************** */
+function validate_sex(object_id)
+{
+  var sex;
+
+  sex = document.getElementById(object_id).value;
+
+  if(sex == "---")
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    validation_person_vars.person_sex = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    validation_person_vars.person_sex = "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Marital Status
+************************************************************************** */
+function validate_marital(object_id)
+{
+  var marital;
+
+  marital = document.getElementById(object_id).value;
+
+  if(marital == "---")
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    validation_person_vars.person_marital = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    validation_person_vars.person_marital = "TRUE";
   }
 }
 
@@ -130,12 +209,12 @@ function validate_email(object_id)
   if(email.length < 3 || email.indexOf("@") == -1 || email.indexOf(".") == -1)
   {
     document.getElementById(object_id).className = "form-control valid_nok";
-    global_person_vars.person_email = "FALSE";
+    validation_person_vars.person_email = "FALSE";
   }
   else
   {
     document.getElementById(object_id).className = "form-control valid_ok";
-    global_person_vars.person_email = "TRUE";
+    validation_person_vars.person_email = "TRUE";
   }
 }
 
@@ -179,18 +258,18 @@ function validate_bdate(object_id)
     if(bday > days_in_month[--bmonth])
     {
       document.getElementById(object_id).className = "form-control valid_nok";
-      global_person_vars.person_mphone = "FALSE";
+      validation_person_vars.person_bdate = "FALSE";
     }
     else
     {
       document.getElementById(object_id).className = "form-control valid_ok";
-      global_person_vars.person_mphone = "TRUE";
+      validation_person_vars.person_bdate = "TRUE";
     }
   }
   else
   {
     document.getElementById(object_id).className = "form-control valid_nok";
-    global_person_vars.person_mphone = "FALSE";
+    validation_person_vars.person_bdate = "FALSE";
   }
 }
 
@@ -206,12 +285,12 @@ function validate_mphone(object_id)
   if(mphone.length < 14)
   {
     document.getElementById(object_id).className = "form-control valid_nok";
-    global_person_vars.person_mphone = "FALSE";
+    validation_person_vars.person_mphone = "FALSE";
   }
   else
   {
     document.getElementById(object_id).className = "form-control valid_ok";
-    global_person_vars.person_mphone = "TRUE";
+    validation_person_vars.person_mphone = "TRUE";
   }
 }
 
@@ -271,7 +350,7 @@ function validate_person_cep(object_id)
       // Malformed CEP
       alert("CEP Inválido!");
       document.getElementById(object_id).className = "form-control valid_nok";
-      global_person_vars.person_cep = "FALSE";
+      validation_person_vars.person_cep = "FALSE";
     }
   }
   else // If field empty
@@ -292,12 +371,12 @@ function validate_street_number(object_id)
   if(street_number.length < 1)
   {
     document.getElementById(object_id).className = "form-control valid_nok";
-    global_person_vars.person_street_number = "FALSE";
+    validation_person_vars.person_street_number = "FALSE";
   }
   else
   {
     document.getElementById(object_id).className = "form-control valid_ok";
-    global_person_vars.person_street_number = "TRUE";
+    validation_person_vars.person_street_number = "TRUE";
   }
 }
 
@@ -313,12 +392,12 @@ function validate_home_type(object_id)
   if(home_type == "---")
   {
     document.getElementById(object_id).className = "form-control valid_nok";
-    global_person_vars.person_home_type = "FALSE";
+    validation_person_vars.person_home_type = "FALSE";
   }
   else
   {
     document.getElementById(object_id).className = "form-control valid_ok";
-    global_person_vars.person_home_type = "TRUE";
+    validation_person_vars.person_home_type = "TRUE";
   }
 }
 
@@ -335,13 +414,13 @@ function validate_home_garage(object_id_1, object_id_2)
   {
     enable_home_garage_door(object_id_1, object_id_2);
     document.getElementById(object_id_1).className = "form-control valid_nok";
-    global_person_vars.person_home_garage = "FALSE";
+    validation_person_vars.person_home_garage = "FALSE";
   }
   else
   {
     enable_home_garage_door(object_id_1, object_id_2);
     document.getElementById(object_id_1).className = "form-control valid_ok";
-    global_person_vars.person_home_garage = "TRUE";
+    validation_person_vars.person_home_garage = "TRUE";
   }
 }
 
@@ -358,7 +437,7 @@ function enable_home_garage_door(object_id_1, object_id_2)
   {
     home_garage_door.setAttribute("disabled", "disabled");
     home_garage_door.selectedIndex = 0;
-    global_person_vars.person_home_garage_door = "TRUE";
+    validation_person_vars.person_home_garage_door = "TRUE";
   }
   else
   {
@@ -376,12 +455,12 @@ function validate_home_garage_door(object_id)
   if(home_garage_door == "---")
   {
     document.getElementById(object_id_1).className = "form-control valid_nok";
-    global_person_vars.person_home_garage_door = "FALSE";
+    validation_person_vars.person_home_garage_door = "FALSE";
   }
   else
   {
     document.getElementById(object_id_1).className = "form-control valid_ok";
-    global_person_vars.person_home_garage_door = "TRUE";
+    validation_person_vars.person_home_garage_door = "TRUE";
   }
 }
 
@@ -512,5 +591,184 @@ function enable_person_use_study(object_id_1, object_id_2)
   else
   {
     use_study_garage.removeAttribute("disabled");
+  }
+}
+
+/* **************************************************************************
+Validate Insurance Renewal
+************************************************************************** */
+function validate_insurance_renewal(object_id_1, object_id_2, object_id_3, object_id_4)
+{
+  var insurance_renewal;
+
+  insurance_renewal = document.getElementById(object_id_1).Value;
+
+  if(insurance_renewal == "---")
+  {
+    document.getElementById(object_id_1).className = "form-control valid_nok";
+  }
+  else
+  {
+    enable_insurance_renewal(object_id_1, object_id_2, object_id_3, object_id_4);
+    document.getElementById(object_id_1).className = "form-control valid_ok";
+  }
+}
+
+/* **************************************************************************
+Enable Insurance Renewal
+************************************************************************** */
+function enable_insurance_renewal(object_id_1, object_id_2, object_id_3, object_id_4)
+{
+  var insurance_renewal;
+  var insurance_company;
+  var insurance_bonus;
+  var insurance_accident;
+
+  insurance_renewal = document.getElementById(object_id_1).value;
+  insurance_company = document.getElementById(object_id_2);
+  insurance_bonus = document.getElementById(object_id_3);
+  insurance_accident = document.getElementById(object_id_4);
+
+  if(insurance_renewal == "---" || insurance_renewal == "no")
+  {
+    insurance_company.setAttribute("disabled", "disabled");
+    insurance_company.selectedIndex = 0;
+
+    insurance_bonus.setAttribute("disabled", "disabled");
+    insurance_bonus.selectedIndex = 0;
+
+    insurance_accident.setAttribute("disabled", "disabled");
+    insurance_accident.selectedIndex = 0;
+  }
+  else
+  {
+    insurance_company.removeAttribute("disabled");
+    insurance_bonus.removeAttribute("disabled");
+    insurance_accident.removeAttribute("disabled");
+  }
+}
+
+/* **************************************************************************
+Validate Car Plate (Format Only)
+************************************************************************** */
+function validate_vehicle_plate(object_id)
+{
+  var vehicle_plate;
+
+  vehicle_plate = document.getElementById(object_id).value;
+
+  if(vehicle_plate.length < 8)
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    validation_person_vars.vehicle_plate = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    validation_person_vars.vehicle_plate = "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Car Chassis (Format Only)
+************************************************************************** */
+function validate_vehicle_chassis(object_id)
+{
+  var vehicle_chassis;
+
+  vehicle_chassis = document.getElementById(object_id).value;
+
+  if(vehicle_chassis.length < 17)
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    validation_person_vars.vehicle_chassis = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    validation_person_vars.vehicle_chassis = "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Manufacturing Year
+************************************************************************** */
+function validate_vehicle_man_year(object_id_1, object_id_2)
+{
+  var vehicle_man_year;
+  var vehicle_mod_year;
+  var current_year;
+
+  vehicle_man_year = document.getElementById(object_id_1).value;
+  vehicle_mod_year = document.getElementById(object_id_2);
+  current_year = (new Date()).getFullYear();
+
+  if(vehicle_man_year > current_year)
+  {
+    document.getElementById(object_id_1).className = "form-control valid_nok";
+    vehicle_mod_year.setAttribute("disabled", "disabled");
+  }
+  else
+  {
+    document.getElementById(object_id_1).className = "form-control valid_ok";
+    vehicle_mod_year.removeAttribute("disabled");
+  }
+}
+
+/* **************************************************************************
+Validate Model Year
+************************************************************************** */
+function validate_vehicle_mod_year(object_id_1, object_id_2, object_3)
+{
+  var vehicle_mod_year;
+  var vehicle_man_year;
+  var current_year;
+
+  vehicle_man_year = document.getElementById(object_id_1).value;
+  vehicle_mod_year = document.getElementById(object_id_2).value;
+  current_year = (new Date()).getFullYear();
+
+  if(vehicle_mod_year > ++current_year || vehicle_mod_year < vehicle_man_year)
+  {
+    document.getElementById(object_id_2).className = "form-control valid_nok";
+  }
+  else
+  {
+    document.getElementById(object_id_2).className = "form-control valid_ok";
+    enable_vehicle_new(object_id_1, object_id_2, object_3);
+  }
+}
+
+/* **************************************************************************
+Enable New Car
+************************************************************************** */
+function enable_vehicle_new(object_1, object_2, object_3)
+{
+  var vehicle_man_year;
+  var vehicle_mod_year;
+  var vehicle_new;
+  var current_year;
+
+  vehicle_man_year = document.getElementById(object_1).value;
+  vehicle_mod_year = document.getElementById(object_2).value;
+  vehicle_new = document.getElementById(object_3);
+  current_year = (new Date()).getFullYear();
+
+  if(vehicle_man_year < current_year - 1 || vehicle_mod_year < vehicle_man_year)
+  {
+    vehicle_new.setAttribute("disabled", "disabled");
+    vehicle_new.selectedIndex = 0;
+  }
+  else
+  {
+    vehicle_new.removeAttribute("disabled");
+    if(current_year.value == "---")
+    {
+      document.getElementById(object_id_3).className = "form-control valid_nok";
+    }
+    else
+    {
+      document.getElementById(object_id_3).className = "form-control valid_ok";
+    }
   }
 }

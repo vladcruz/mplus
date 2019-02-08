@@ -1,74 +1,52 @@
 /* -----------------------------------------------------------------------
-TABLE NAME: 
-    tbl_requests
+TABLE NAME:
+    tbl_company_requests
 TABLE DESCRIPTION:
-    Table that holds all the data for the insurance requests
+    Table that holds all the data for the insurance requests for
+    companies
 TABLE CONSTRAINTS:
-    PRIMARY KEY -> reqt_idx
+    PRIMARY KEY -> cpy_req_idx
 ----------------------------------------------------------------------- */
 
-CREATE TABLE IF NOT EXISTS tbl_requests
+CREATE TABLE IF NOT EXISTS tbl_company_requests
 (
-    -- General Table Data
-    reqt_idx INT NOT NULL AUTO_INCREMENT PRIMARY KEY,   -- Index of the Request
-    reqt_cdt DATE NOT NULL,                             -- Creation date of the request
-    -- Personal Data
-    reqt_cpf VARCHAR(14) NOT NULL,                      -- CPF of the Customer
-    reqt_nam VARCHAR(64) NOT NULL,                      -- First Name of the Customer
-    reqt_ema VARCHAR(64) NOT NULL,                      -- E-Mail of the Customer
-    reqt_bdt DATE,                                      -- Birth Date of the Customer
-    reqt_fmb VARCHAR(14) NOT NULL,                      -- Mobile Phone Number of the Customer    
-    reqt_fxf VARCHAR(11),                               -- Fixed Phone Number of the Customer
-    -- Address Data
-    reqt_cep VARCHAR(9) NOT NULL,                       -- CEP of the Customers' Address
-    reqt_add VARCHAR(128),                              -- Address of the Customer
-    reqt_sta VARCHAR(2),                                -- State of the Customer
-    reqt_cit VARCHAR(64),                               -- City of the Customer
-    -- Vehicle Data
-    reqt_plt VARCHAR(8) NOT NULL,                       -- Vehicle's license plate number
-    reqt_man VARCHAR(32),                               -- Vehicle's manufacturer
-    reqt_mod VARCHAR(32),                               -- Vehicle's model
-    reqt_des VARCHAR(128),                              -- Vehicle's description
-    reqt_myr INT,                                       -- Vehicle's manufacture year
-    reqt_mmy INT,                                       -- Vehicle's model year
-    reqt_cha VARCHAR(17),                               -- Vehicle's chassi number
-    reqt_ren VARCHAR(11),                               -- Vehicle's Renavam number
-    -- Insurance Data
-    reqt_typ VARCHAR(5) NOT NULL,                       -- Type of request, NEW insurance or RENEW insurance
-    reqt_inc VARCHAR(32),                               -- Name of the Insurance Company
-    reqt_bon VARCHAR(5),                                -- Bonus type of the insurance
-    reqt_acc VARCHAR(3)                                 -- Points it an accident happened YES ot NO
+  -- Internal Data
+  cpy_req_idx INT NOT NULL AUTO_INCREMENT PRIMARY KEY,    -- Index of the Requests
+  cpy_req_cdt DATE NOT NULL,                              -- Creation date of the Request
+
+  -- Company Information
+  cpy_req_cpj VARCHAR(18) NOT NULL,                       -- CNPJ Number of the Company
+  cpy_req_cpn VARCHAR(64) NOT NULL,                       -- Name of the Company
+  cpy_req_cep VARCHAR(9) NOT NULL,                        -- CEP of the Company
+  cpy_req_str VARCHAR(32) NOT NULL,                       -- Street of the Company
+  cpy_req_num VARCHAR(6) NOT NULL,                        -- Number of the Building on the Street
+  cpy_req_com VARCHAR(32),                                -- Complement to the address of the Company
+  cpy_req_stt VARCHAR(2) NOT NULL,                        -- State of the Company
+  cpy_req_cit VARCHAR(32) NOT NULL,                       -- City of the Company
+  cpy_req_are VARCHAR(32) NOT NULL,                       -- City Area of the Company
+
+  -- Company Contact Information
+  cpy_req_ctn VARCHAR(24) NOT NULL,                       -- Name of the Person of Contact in the Company
+  cpy_req_ema VARCHAR(32) NOT NULL,                       -- E-Mail of the Person of Contact in the Company
+  cpy_req_mph VARCHAR(14) NOT NULL,                       -- Mobile Phone of the Person of Contact in the Company
+  cpy_req_fph VARCHAR(13),                                -- Fixed Phone of the Person of Contact in the Company
+  cpy_req_ext VARCHAR(5),                                 -- Extension of the Person of Contact in the Company
+
+  -- Insurance Information
+  cpy_req_ity VARCHAR(120) NOT NULL,                      -- Insurance Type, values area separated by semicolon
+  cpy_req_com VARCHAR(2048)                               -- Additional comments to the request
 );
 
 /* -----------------------------------------------------------------------
-QUERIES
+TABLE NAME:
+    tbl_person_requests
+TABLE DESCRIPTION:
+    Table that holds all the data for the insurance requests for
+    people
+TABLE CONSTRAINTS:
+    PRIMARY KEY -> per_req_idx
 ----------------------------------------------------------------------- */
-
-INSERT INTO tbl_requests
-    (
-        reqt_idx, 
-        reqt_nam, 
-        reqt_bdt, 
-        reqt_cpf, 
-        reqt_fxf, 
-        reqt_fmb, 
-        reqt_cep, 
-        reqt_ad1, 
-        reqt_ad2, 
-        reqt_cit, 
-        reqt_sta, 
-        reqt_plt, 
-        reqt_cha, 
-        reqt_ren, 
-        reqt_myr, 
-        reqt_mod, 
-        reqt_des, 
-        reqt_typ, 
-        reqt_inc, 
-        reqt_bon, 
-        reqt_acc
-    )
-VALUES
-    (
-    
-    );
+CREATE TABLE IF NOT EXISTS tbl_person_requests
+(
+  
+)

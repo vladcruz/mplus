@@ -183,3 +183,14 @@ Validation Classes
 {
   border-color: #FF0000;
 }
+
+/* *****************************************************************************
+Validation Classes
+***************************************************************************** */
+.error_msg
+{
+  width: 40%;
+  border-radius: 5px;
+  background-color: #FCE883;
+  color: #FC0505;
+}

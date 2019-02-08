@@ -56,7 +56,7 @@
               </div>
               <div class="form-group col-md-2">
                 <label for="input_company_street_comp" class="form-check-label">Complemento</label>
-                <input type="text" name="input_company_street_comp" class="form-control" id="input_company_street_comp" maxlenght="128">
+                <input type="text" name="input_company_street_comp" class="form-control" id="input_company_street_comp" maxlenght="32">
               </div>
             </div>
             <div class="form-row">
@@ -133,7 +133,8 @@
         <div id="div_submit_button" >
           <button type="button" class="btn btn-warning" onclick="validate_company_insurance_type('input_company_insurance_type'); validate_company_submit();">Enviar</button>
         </div>
-        <div id="div_error_msg"></div>
+        <br>
+        <div id="div_error_msg" class="error_msg"></div>
       </form>
       <div>
         <!-- Just a Filler to have more space within the page! -->
@@ -152,7 +153,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-    <script src="js/mplus_ux.js"></script>
     <script src="js/mplus_validate_company.js"></script>
   </body>
 </html>

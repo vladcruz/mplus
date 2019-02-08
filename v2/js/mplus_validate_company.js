@@ -348,7 +348,7 @@ function validate_company_submit()
 
   validation_counter = 0;
   validation_string = "";
-  error_msg = "";
+  error_msg = "<b>VERIFIQUE OS SEGUINTES CAMPOS:</b><br><br>";
 
   document.getElementById("div_error_msg").innerHTML = "";
 
@@ -361,7 +361,7 @@ function validate_company_submit()
   else
   {
     document.getElementById("input_company_cnpj").className = "form-control valid_nok";
-    error_msg = error_msg + "CNPJ Inv&aacute;lido ou Vazio!<br>";
+    error_msg = error_msg + "<b>CNPJ:</b> Inv&aacute;lido ou Vazio!<br>";
   }
 
   // Validate Company Name - Mandatory field
@@ -373,7 +373,7 @@ function validate_company_submit()
   else
   {
     document.getElementById("input_company_name").className = "form-control valid_nok";
-    error_msg = error_msg + "Nome de Empresa Inv&aacute;lido ou Vazio!<br>";
+    error_msg = error_msg + "<b>Nome de Empresa:</b> Inv&aacute;lido ou Vazio!<br>";
   }
 
   // Validate Company CEP - Mandatory Field
@@ -390,19 +390,19 @@ function validate_company_submit()
   else
   {
     document.getElementById("input_company_cep").className = "form-control valid_nok";
-    error_msg = error_msg + "CEP Inv&aacute;lido ou Vazio!<br>";
+    error_msg = error_msg + "<b>CEP:</b> Inv&aacute;lido ou Vazio!<br>";
   }
 
   // Validate Street Number - Mandatory Field
   if(validation_company_vars.company_street_number == "TRUE")
   {
     validation_counter = validation_counter + 1;
-    validation_string = validation_string + "'" + document.getElementById("input_company_street_number") + "', ";
+    validation_string = validation_string + "'" + document.getElementById("input_company_street_number").value + "', ";
   }
   else
   {
     document.getElementById("input_company_street_number").className = "form-control valid_nok";
-    error_msg = error_msg + "N&uacute;mero do Endere&ccedil;o Inv&aacute;lido ou Vazio!<br>";
+    error_msg = error_msg + "<b>N&uacute;mero do Endere&ccedil;o:</b> Inv&aacute;lido ou Vazio!<br>";
   }
 
   // Validate Company's Contact Name
@@ -414,7 +414,7 @@ function validate_company_submit()
   else
   {
     document.getElementById("input_company_cname").className = "form-control valid_nok";
-    error_msg = error_msg + "Nome de Contato Inv&aacute;lido ou Vazio!<br>";
+    error_msg = error_msg + "<b>Nome de Contato:</b> Inv&aacute;lido ou Vazio!<br>";
   }
 
   // Validate Company's Contact E-Mail
@@ -426,7 +426,7 @@ function validate_company_submit()
   else
   {
     document.getElementById("input_company_cemail").className = "form-control valid_nok";
-    error_msg = error_msg + "E-Mail do Contato Inv&aacute;lido ou Vazio!<br>";
+    error_msg = error_msg + "<b>E-Mail do Contato:</b> Inv&aacute;lido ou Vazio!<br>";
   }
 
   // Validate Company's Contact Mobile Phone
@@ -440,7 +440,7 @@ function validate_company_submit()
   else
   {
     document.getElementById("input_company_mphone").className = "form-control valid_nok";
-    error_msg = error_msg + "Celular do Contato Inv&aacute;lido ou Vazio!<br>";
+    error_msg = error_msg + "<b>Celular do Contato:</b> Inv&aacute;lido ou Vazio!<br>";
   }
 
   // Validate Insurance Type
@@ -451,7 +451,7 @@ function validate_company_submit()
   }
   else
   {
-    error_msg = error_msg + "Selecione ao menos um Tipo de Seguro!<br>";
+    error_msg = error_msg + "<b>Tipo de Seguro:</b> Selecione ao menos uma Op&ccedil;&atilde;o!<br>";
   }
 
   if(validation_counter != 8)
