@@ -71,7 +71,6 @@ Validate the CPF Number
 ************************************************************************** */
 function validate_cpf(object_id)
 {
-  // Clear all error messages that may exist
   document.getElementById(object_id).className = "form-control";
 
   var cpf;
@@ -268,19 +267,28 @@ function validate_bdate(object_id)
       days_in_month = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     }
 
-    // Checks if the day is within Month range
-    if(bday > days_in_month[--bmonth])
+    // Checks if the Month is within the correct range (1 - 12)
+    if(bmonth < 1 || bmonth > 12)
     {
       document.getElementById(object_id).className = "form-control valid_nok";
-      validation_person_vars.person_bdate = "FALSE";
+      validation_person_vars.person_bdate = "FALSE";      
     }
     else
     {
-      document.getElementById(object_id).className = "form-control valid_ok";
-      validation_person_vars.person_bdate = "TRUE";
+      // Checks if the day is within Month range
+      if(bday > days_in_month[--bmonth])
+      {
+        document.getElementById(object_id).className = "form-control valid_nok";
+        validation_person_vars.person_bdate = "FALSE";
+      }
+      else
+      {
+        document.getElementById(object_id).className = "form-control valid_ok";
+        validation_person_vars.person_bdate = "TRUE";
+      }
     }
   }
-  else
+  else // If it is under 18 years of age
   {
     document.getElementById(object_id).className = "form-control valid_nok";
     validation_person_vars.person_bdate = "FALSE";
