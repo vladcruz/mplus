@@ -333,6 +333,8 @@ function callback_person_cep(cep)
   else
   {
     alert("CEP não encontrado.");
+    document.getElementById("input_person_cep").className = "form-control valid_nok";
+    validation_person_vars.person_cep = "FALSE";
   }
 }
 
@@ -366,6 +368,8 @@ function validate_person_cep(object_id)
 
       // Appends the results within the Page
       document.body.appendChild(script);
+      document.getElementById(object_id).className = "form-control valid_ok";
+      validation_person_vars.person_cep = "TRUE";
     }
     else
     {
@@ -454,8 +458,8 @@ function enable_home_garage_door(object_id_1, object_id_2)
   var home_garage = document.getElementById(object_id_1).value;
   var home_garage_door = document.getElementById(object_id_2);
 
-  // If there is no Garage, the Door is deisabled and set to default value
-  if(home_garage == "---" || home_garage == "no")
+  // If there is no Garage, the Door is disabled and set to default value
+  if(home_garage == "---" || home_garage == "Nao")
   {
     home_garage_door.setAttribute("disabled", "disabled");
     home_garage_door.selectedIndex = 0;
@@ -476,13 +480,34 @@ function validate_home_garage_door(object_id)
 
   if(home_garage_door == "---")
   {
-    document.getElementById(object_id_1).className = "form-control valid_nok";
+    document.getElementById(object_id).className = "form-control valid_nok";
     validation_person_vars.person_home_garage_door = "FALSE";
   }
   else
   {
-    document.getElementById(object_id_1).className = "form-control valid_ok";
+    document.getElementById(object_id).className = "form-control valid_ok";
     validation_person_vars.person_home_garage_door = "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate amount of Vehicles
+************************************************************************** */
+function validate_qty_vehicles(object_id)
+{
+  var qty_vehicles;
+
+  qty_vehicles = document.getElementById(object_id).value;
+
+  if(qty_vehicles == "---")
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    validation_person_vars.person_owned_vehicles = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    validation_person_vars.person_owned_vehicles = "TRUE";
   }
 }
 
@@ -499,6 +524,7 @@ function validate_person_other_drivers(object_id_1, object_id_2)
   {
     enable_person_other_drivers_age(object_id_1, object_id_2);
     document.getElementById(object_id_1).className = "form-control valid_nok";
+    validation_person_vars.person_other_drivers_age = "FALSE";
   }
   else
   {
@@ -516,16 +542,37 @@ function enable_person_other_drivers_age(object_id_1, object_id_2)
   var other_drivers_age = document.getElementById(object_id_2);
 
   // If there is no Garage, the Door is deisabled and set to default value
-  if(other_drivers == "---" || other_drivers == "no residents")
+  if(other_drivers == "---" || other_drivers == "Sem Residentes")
   {
     other_drivers_age.setAttribute("disabled", "disabled");
     other_drivers_age.selectedIndex = 0;
+    validation_person_vars.person_other_drivers_age = "TRUE"
   }
   else
   {
     other_drivers_age.removeAttribute("disabled");
   }
 }
+
+/* **************************************************************************
+Validate Other Drivers Age
+************************************************************************** */
+function validate_person_other_drivers_age(object_id)
+{
+  var other_drivers_age;
+
+  if(other_drivers_age == "---")
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    validation_person_vars.person_other_drivers_age = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    validation_person_vars.person_other_drivers_age = "TRUE";
+  }
+}
+
 
 /* **************************************************************************
 Validate Use for Work
@@ -559,7 +606,7 @@ function enable_person_use_work(object_id_1, object_id_2, object_id_3)
 
 
   // If there is no Garage, the Door is deisabled and set to default value
-  if(use_work == "---" || use_work == "no")
+  if(use_work == "---" || use_work == "Nao")
   {
     use_work_garage.setAttribute("disabled", "disabled");
     use_work_garage.selectedIndex = 0;
@@ -571,6 +618,48 @@ function enable_person_use_work(object_id_1, object_id_2, object_id_3)
   {
     use_work_garage.removeAttribute("disabled");
     use_work_distance.removeAttribute("disabled");
+  }
+}
+
+/* **************************************************************************
+Validate Garage to Work
+************************************************************************** */
+function validate_person_use_work_garage(object_id)
+{
+  var work_garage;
+
+  work_garage = document.getElementById(object_id).value;
+
+  if(work_garage == "---")
+  {
+    document.getElementById(object_id).className = "form-control valida_nok";
+    validation_person_vars.person_garage_work = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valida_ok";
+    validation_person_vars.person_garage_work = "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Distance to Work
+************************************************************************** */
+function validate_person_use_work_distance(object_id)
+{
+  var work_distance;
+
+  work_distance = document.getElementById(object_id).value;
+
+  if(work_distance == "---")
+  {
+    document.getElementById(object_id).className = "form-control valida_nok";
+    validation_person_vars.person_distance_work = "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valida_ok";
+    validation_person_vars.person_distance_work = "TRUE";
   }
 }
 
