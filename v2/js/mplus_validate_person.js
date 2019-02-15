@@ -2,7 +2,7 @@
 File Name: mplus_validate_person.js
 Author: Vladmir Cruz
 Date: 05/01/2019
-Version: 0.1
+Version: 0.2
 
 Change Control:
 ===============
