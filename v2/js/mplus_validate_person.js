@@ -955,14 +955,35 @@ Validate Central
 ************************************************************************** */
 function validate_central()
 {
+  var counter;
+
+  counter = 0;
+
   if(validation_person_vars.person_cpf == "FALSE")
   {
-    
+    document.getElementById("input_person_cpf").className = "form-control valid_nok";
+    counter = counter + 1;
   }
-  validation_person_vars.person_name
-  validation_person_vars.person_sex
-  validation_person_vars.person_marital
-  validation_person_vars.person_email
+  if(validation_person_vars.person_name == "FALSE")
+  {
+    document.getElementById("input_person_name").className = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.person_sex == "FALSE")
+  {
+    document.getElementById("input_person_sex").className = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.person_marital == "FALSE")
+  {
+    document.getElementById("input_person_marital").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.person_email == "FALSE")
+  {
+    document.getElementById("input_person_email").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
   validation_person_vars.person_bdate
   validation_person_vars.person_mphone
   validation_person_vars.person_cep
