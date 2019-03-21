@@ -894,7 +894,7 @@ function validate_insurance_company(object_id)
 {
   var insurance_company;
 
-  insurance_company = object_id;
+  insurance_company = document.getElementById(object_id).value;
 
   if(insurance_company == "---")
   {
@@ -915,7 +915,7 @@ function validate_insurance_bonus_class(object_id)
 {
   var insurance_bonus_class;
 
-  insurance_bonus_class = object_id;
+  insurance_bonus_class = document.getElementById(object_id).value;
 
   if(insurance_bonus_class == "---")
   {
@@ -934,5 +934,56 @@ Validate Insurance Accident
 ************************************************************************** */
 function validate_insurance_accident(object_id)
 {
+  var insurance_accident;
 
+  insurance_accident = document.getElementById(object_id).value;
+
+  if(insurance_accident == "---")
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    validation_person_vars.insurance_accident= "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    validation_person_vars.insurance_accident= "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Central
+************************************************************************** */
+function validate_central()
+{
+  if(validation_person_vars.person_cpf == "FALSE")
+  {
+    
+  }
+  validation_person_vars.person_name
+  validation_person_vars.person_sex
+  validation_person_vars.person_marital
+  validation_person_vars.person_email
+  validation_person_vars.person_bdate
+  validation_person_vars.person_mphone
+  validation_person_vars.person_cep
+  validation_person_vars.person_street_number
+  validation_person_vars.person_home_type
+  validation_person_vars.person_home_garage
+  validation_person_vars.person_home_garage_door
+  validation_person_vars.person_owned_vehicles
+  validation_person_vars.person_other_drivers
+  validation_person_vars.person_other_drivers_age
+  validation_person_vars.person_use_vehicle_work
+  validation_person_vars.person_garage_work
+  validation_person_vars.person_distance_work
+  validation_person_vars.person_use_vehicle_study
+  validation_person_vars.person_use_vehicle_study_garage
+  validation_person_vars.person_use_vehicle_professionaly
+  validation_person_vars.person_use_vehicle_distance
+  validation_person_vars.vehicle_plate
+  validation_person_vars.vehicle_chassis
+  validation_person_vars.insurance_renovation
+  validation_person_vars.insurance_company
+  validation_person_vars.insurance_bonus_class
+  validation_person_vars.insurance_accident
 }
