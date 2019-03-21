@@ -842,11 +842,14 @@ function validate_insurance_renewal(object_id_1, object_id_2, object_id_3, objec
   if(insurance_renewal == "---")
   {
     document.getElementById(object_id_1).className = "form-control valid_nok";
+    validation_person_vars.insurance_renovation = "FALSE";
+    enable_insurance_renewal(object_id_1, object_id_2, object_id_3, object_id_4);
   }
   else
   {
-    enable_insurance_renewal(object_id_1, object_id_2, object_id_3, object_id_4);
     document.getElementById(object_id_1).className = "form-control valid_ok";
+    validation_person_vars.insurance_renovation = "TRUE";
+    enable_insurance_renewal(object_id_1, object_id_2, object_id_3, object_id_4);
   }
 }
 
@@ -865,7 +868,7 @@ function enable_insurance_renewal(object_id_1, object_id_2, object_id_3, object_
   insurance_bonus = document.getElementById(object_id_3);
   insurance_accident = document.getElementById(object_id_4);
 
-  if(insurance_renewal == "---" || insurance_renewal == "no")
+  if(insurance_renewal == "---" || insurance_renewal == "Nao")
   {
     insurance_company.setAttribute("disabled", "disabled");
     insurance_company.selectedIndex = 0;
@@ -882,4 +885,54 @@ function enable_insurance_renewal(object_id_1, object_id_2, object_id_3, object_
     insurance_bonus.removeAttribute("disabled");
     insurance_accident.removeAttribute("disabled");
   }
+}
+
+/* **************************************************************************
+Validate Insurance Company
+************************************************************************** */
+function validate_insurance_company(object_id)
+{
+  var insurance_company;
+
+  insurance_company = object_id;
+
+  if(insurance_company == "---")
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    validation_person_vars.insurance_company= "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    validation_person_vars.insurance_company= "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Insurance Bonus Class
+************************************************************************** */
+function validate_insurance_bonus_class(object_id)
+{
+  var insurance_bonus_class;
+
+  insurance_bonus_class = object_id;
+
+  if(insurance_bonus_class == "---")
+  {
+    document.getElementById(object_id).className = "form-control valid_nok";
+    validation_person_vars.insurance_bonus_class= "FALSE";
+  }
+  else
+  {
+    document.getElementById(object_id).className = "form-control valid_ok";
+    validation_person_vars.insurance_bonus_class= "TRUE";
+  }
+}
+
+/* **************************************************************************
+Validate Insurance Accident
+************************************************************************** */
+function validate_insurance_accident(object_id)
+{
+
 }

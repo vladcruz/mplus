@@ -323,7 +323,7 @@
               </div>
               <div class="form-group col-md-3">
                 <label for="input_insurance_company" class="form-check-label">Seguradora<span class="mandatory">*</span> </label>
-                <select class="form-control" name="input_insurance_company" id="input_insurance_company" disabled>
+                <select class="form-control" name="input_insurance_company" id="input_insurance_company" onchange="validate_insurance_company('input_insurance_company')" disabled>
                   <option value="---">Selecione uma...</option>
                   <option value="Allianz">Allianz</option>
                   <option value="Azul">Azul</option>
@@ -351,7 +351,7 @@
               </div>
               <div class="form-group col-md-3">
                 <label for="input_insurance_bonus_class" class="form-check-label">Classe de B&ocirc;nus<span class="mandatory">*</span></label>
-                <select class="form-control" name="input_insurance_bonus_class" id="input_insurance_bonus_class" disabled>
+                <select class="form-control" name="input_insurance_bonus_class" id="input_insurance_bonus_class" onchange="validate_insurance_bonus_class('input_insurance_bonus_class')" disabled>
                   <option value="---">Selecione...</option>
                   <option value="0">0</option>
                   <option value="1">1</option>
