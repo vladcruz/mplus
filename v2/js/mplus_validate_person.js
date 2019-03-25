@@ -984,27 +984,124 @@ function validate_central()
     document.getElementById("input_person_email").classname = "form-control valid_nok";
     counter = counter + 1;
   }
-  validation_person_vars.person_bdate
-  validation_person_vars.person_mphone
-  validation_person_vars.person_cep
-  validation_person_vars.person_street_number
-  validation_person_vars.person_home_type
-  validation_person_vars.person_home_garage
-  validation_person_vars.person_home_garage_door
-  validation_person_vars.person_owned_vehicles
-  validation_person_vars.person_other_drivers
-  validation_person_vars.person_other_drivers_age
-  validation_person_vars.person_use_vehicle_work
-  validation_person_vars.person_garage_work
-  validation_person_vars.person_distance_work
-  validation_person_vars.person_use_vehicle_study
-  validation_person_vars.person_use_vehicle_study_garage
-  validation_person_vars.person_use_vehicle_professionaly
-  validation_person_vars.person_use_vehicle_distance
-  validation_person_vars.vehicle_plate
-  validation_person_vars.vehicle_chassis
-  validation_person_vars.insurance_renovation
-  validation_person_vars.insurance_company
-  validation_person_vars.insurance_bonus_class
-  validation_person_vars.insurance_accident
+  if(validation_person_vars.person_bdate == "FALSE")
+  {
+    document.getElementById("input_person_bdate").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.person_mphone == "FALSE")
+  {
+    document.getElementById("input_person_mphone").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.person_cep == "FALSE")
+  {
+    document.getElementById("input_person_cep").classname = "form-control valid_nok";
+    counter = counter + 1;    
+  }
+  if(validation_person_vars.person_street_number == "FALSE")
+  {
+    document.getElementById("input_person_street_number").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.person_home_type == "FALSE")
+  {
+    document.getElementById("input_person_home_type").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.person_home_garage == "FALSE")
+  {
+    document.getElementById("input_person_home_garage").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.person_home_garage_door == "FALSE")
+  {
+    document.getElementById("input_person_home_garage_door").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.person_owned_vehicles == "FALSE")
+  {
+    document.getElementById("input_person_owned_vehicles").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.person_other_drivers == "FALSE")
+  {
+    document.getElementById("input_person_other_drivers").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.person_other_drivers_age == "FALSE")
+  {
+    document.getElementById("input_person_other_drivers_age").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.person_use_vehicle_work == "FALSE")
+  {
+    document.getElementById("input_person_use_vehicle_work").classname = "form-control valid_nok";
+    counter = counter + 1;    
+  }
+  if(validation_person_vars.person_garage_work == "FALSE")
+  {
+    document.getElementById("input_person_garage_work").classname = "form-control valid_nok";
+    counter = counter + 1;    
+  }
+  if(validation_person_vars.person_distance_work == "FALSE")
+  {
+    document.getElementById("input_person_distance_work").classname = "form-control valid_nok";
+    counter = counter + 1;    
+  }
+  if(validation_person_vars.person_use_vehicle_study == "FALSE")
+  {
+    document.getElementById("input_person_use_vehicle_study").classname = "form-control valid_nok";
+    counter = counter + 1;    
+  }
+  if(validation_person_vars.person_use_vehicle_study_garage == "FALSE")
+  {
+    document.getElementById("input_person_use_vehicle_study_garage").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.person_use_vehicle_professionaly == "FALSE")
+  {
+    document.getElementById("input_person_use_vehicle_professionaly").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.person_use_vehicle_distance == "FALSE")
+  {
+    document.getElementById("input_person_use_vehicle_distance").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.vehicle_plate == "FALSE")
+  {
+    document.getElementById("input_vehicle_plate").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.vehicle_chassis == "FALSE")
+  {
+    document.getElementById("input_vehicle_chassis").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.insurance_renovation == "FALSE")
+  {
+    document.getElementById("input_insurance_renovation").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.insurance_company == "FALSE")
+  {
+    document.getElementById("input_insurance_company").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.insurance_bonus_class == "FALSE")
+  {
+    document.getElementById("input_insurance_bonus_class").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+  if(validation_person_vars.insurance_accident == "FALSE")
+  {
+    document.getElementById("input_insurance_accident").classname = "form-control valid_nok";
+    counter = counter + 1;
+  }
+
+  if(counter != 0)
+  {
+    alert("ALERTA: Existem campos a serem corrigidos no formulário!");
+  }
 }
